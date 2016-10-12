@@ -1,30 +1,37 @@
-(function () {
+$(function () {
 
-    var homeSnippet = 'snippets/home-snippet.html';
-    var menuSnippet = 'snippets/menu-snippet.html';
-    var basketSnippet = 'snippets/basket-snippet.html';
-    var historySnippet = 'snippets/history-snippet.html';
-    var categorySnippet = "snippets/category-snippet.html";
-    var itemSnippet = "snippets/item-snippet.html";
-    var containerNav = document.getElementById('container');
-    var categories;
+    'use strict';
+
+    var homeSnippet = 'snippets/home-snippet.html',
+        basketSnippet = 'snippets/basket-snippet.html',
+        historySnippet = 'snippets/history-snippet.html',
+        containerNav = document.getElementById('container'),
+        mainDiv = document.getElementById('main-content'),
+        section = document.createElement('section'),
+        categories = [];
+
+    function Menu() {}
+
+    Menu.prototype = Object.create(Array.prototype, {
+        constructor: {
+            value: Menu
+        }
+    });
+
+    var menu = new Menu();
+
+    var restaurantAPI = new RestaurantAPI();
 
     containerNav.addEventListener('click', clickNavEvent, false);
 
     function clickCategoryEvent(e) {
-        var target = e.target;
-        var short_name = target.parentNode.getAttribute('data-short-name');
-        var items = getItems(short_name);
-        getAllItems(items[0], items[1], itemSnippet);
-    }
-
-    function getItems(short_name) {
-        var items = [];
-        for(var i = 0; i < categories.length; i++){
-            if(categories[i].short_name === short_name){
-               return [categories[i].short_name, categories[i].menu_items];
-            }
-        }
+        var target = e.target,
+            sName = target.parentNode.getAttribute('data-short-name'),
+            index = menu.findIndex(function (item) {
+                return item.sName === sName;
+            }),
+            category = menu[index];
+        insertMainContent(category.childElements);
     }
 
     function determineTarget(e) {
@@ -66,7 +73,6 @@
             }
             case 'menuRef': {
                 getAllCategories('menu.json');
-                //changeContent(menuSnippet);
                 break;
             }
             case 'basketRef': {
@@ -84,148 +90,50 @@
         }
     }
 
-
-    var insertHtml = function (selector, html) {
-        var targetElem = document.querySelector(selector);
-        targetElem.innerHTML = html;
+    var insertMainContent = function (html) {
+        mainDiv.innerHTML = '';
+        mainDiv.appendChild(html);
     };
 
     var changeContent = function(url){
-        $ajaxUtils.sendGetRequest(
+        restaurantAPI.sendGetRequest(
             url,
             function (html) {
-                insertHtml('#main-content', html);
+                mainDiv.innerHTML = html;
             }
         );
     };
 
     var getAllCategories = function (url) {
-        $ajaxUtils.sendGetRequest(
-            url,
-            function (json) {
-                categories = JSON.parse(json);
-                $ajaxUtils.sendGetRequest(
-                    categorySnippet,
-                    function (html) {
-                        result = formCategoryHtml(categories, html);
-                        insertHtml('#main-content', result);
-                        var section = document.getElementById('section');
-                        section.addEventListener('click', clickCategoryEvent, false);
-                    }
-                );
-            }
-        );
+        if(categories.length !== 0){
+            formCategoryHtml(categories);
+        } else {
+            restaurantAPI.sendGetRequest(
+                url,
+                function (json) {
+                    categories = JSON.parse(json);
+                    formCategoryHtml(categories);
+                }
+            );
+        }
     };
 
-    var getAllItems = function (categoryShortName, items, itemSnippet) {
-        $ajaxUtils.sendGetRequest(
-            itemSnippet,
-            function (html) {
-                result = formItemHtml(categoryShortName, items, html);
-                insertHtml('#main-content', result);
-                var input = document.getElementById('quantity');
-                input.addEventListener('click', clickInputEvent, false);
-            }
-        );
-    };
-
-    function clickInputEvent(e) {
-        e.preventDefault();
-        $(this).blur();
-        return false;
-    }
-
-    var formCategoryHtml = function (json, html) {
-        var resultHtml = "<section class='row' id='section'>",
-            categoryHtml, name;
-        for(var i = 0; i < json.length; i++){
-            categoryHtml = html;
-            name = json[i].name;
-            categoryHtml = insertProperty(categoryHtml, "name", name);
-            categoryHtml = insertProperty(categoryHtml, "short_name", json[i].short_name);
-            resultHtml += categoryHtml;
+    var formCategoryHtml = function (json) {
+        var sectionCat = section.cloneNode(true);
+        sectionCat.id = 'section';
+        sectionCat.classList.add('row');
+        sectionCat.addEventListener('click', clickCategoryEvent, false);
+        menu = [];
+        for (var i = 0, len = json.length; i < len; i++) {
+            var categoryItem = new CategoryItem(json[i].id, json[i].short_name, json[i].name, json[i].special_instructions, json[i].menu_items);
+            sectionCat.appendChild(categoryItem.element);
+            menu.push(categoryItem);
         }
-        resultHtml += '</section>';
-        return resultHtml;
-    };
-
-    var formItemHtml = function(categoryShortName, json, html){
-        var finalHtml = "<section class='row'>";
-
-        for (var i = 0; i < json.length; i++) {
-            var itemHtml = html;
-            itemHtml =
-                insertProperty(itemHtml, "short_name", json[i].short_name);
-            itemHtml =
-                insertProperty(itemHtml,
-                    "catShortName",
-                    categoryShortName);
-            itemHtml =
-                insertItemPrice(itemHtml,
-                    "price_small",
-                    json[i].price_small);
-            itemHtml =
-                insertItemPortionName(itemHtml,
-                    "small_portion_name",
-                    json[i].small_portion_name);
-            itemHtml =
-                insertItemPrice(itemHtml,
-                    "price_large",
-                    json[i].price_large);
-            itemHtml =
-                insertItemPortionName(itemHtml,
-                    "large_portion_name",
-                    json[i].large_portion_name);
-            itemHtml =
-                insertProperty(itemHtml,
-                    "name",
-                    json[i].name);
-            itemHtml =
-                insertProperty(itemHtml,
-                    "description",
-                    json[i].description);
-
-            finalHtml += itemHtml;
-        }
-
-        finalHtml += '</section>';
-        return finalHtml;
-    };
-
-    function insertItemPrice(html,
-                             pricePropName,
-                             priceValue) {
-        if (!priceValue) {
-            return insertProperty(html, pricePropName, '');
-        }
-        priceValue = '$' + priceValue.toFixed(2);
-        html = insertProperty(html, pricePropName, priceValue);
-        return html;
-    }
-
-    function insertItemPortionName(html,
-                                   portionPropName,
-                                   portionValue) {
-        if (!portionValue) {
-            return insertProperty(html, portionPropName, '');
-        }
-        portionValue = '(' + portionValue + ')';
-        html = insertProperty(html, portionPropName, portionValue);
-        return html;
-    }
-
-    var insertProperty = function (string, propName, propValue) {
-        var propToReplace = '{{' + propName + '}}';
-        string = string
-            .replace(new RegExp(propToReplace, 'g'), propValue);
-        return string;
+        insertMainContent(sectionCat);
     };
 
     changeContent(homeSnippet);
 
-})();
-
-$(function () {
     function closeMenu() {
         var screenWidth = window.innerWidth;
         if (screenWidth < 768) {
@@ -235,4 +143,6 @@ $(function () {
     $("#navbarToggle").blur(function (event) {
         setTimeout(closeMenu, 10);
     });
+
 });
+
