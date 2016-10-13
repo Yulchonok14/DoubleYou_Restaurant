@@ -11,18 +11,18 @@ $(function () {
         section = document.createElement('section'),
         mainDiv = document.getElementById('main-content');
 
-    function CategoryItem(id, sName, name, spInstruc, menuItems) {
+    function Course(id, sName, name, spInstruc, dishes) {
         this.id = id;
         this.sName = sName;
         this.name = name;
         this.spInstruc = spInstruc;
         this.items = [];
 
-        this.element = createCategoryItem(this);
-        this.childElements = createMenuItems(menuItems, this);
+        this.element = createCourse(this);
+        this.childElements = createDishes(dishes, this);
     }
 
-    function createMenuItems(menuItems, item) {
+    function createDishes(dishes, item) {
         var catH2 = h2.cloneNode(true),
             spInstrucDiv = div.cloneNode(true),
             clearDiv = div.cloneNode(true),
@@ -30,7 +30,7 @@ $(function () {
             buttonInput = input.cloneNode(true),
             fragment = document.createDocumentFragment();
 
-        if((menuItems) && (menuItems.length !== 0)) {
+        if((dishes) && (dishes.length !== 0)) {
             catH2.id = 'menu-categories-title';
             catH2.classList.add('text-center');
             catH2.textContent = item.name + ' Menu';
@@ -45,13 +45,13 @@ $(function () {
             fragment.appendChild(catH2);
             fragment.appendChild(spInstrucDiv);
 
-            for (var i = 0, len = menuItems.length; i < len; i++) {
-                var menuItem = new MenuItem(menuItems[i].id, menuItems[i].short_name, menuItems[i].name, menuItems[i].description, menuItems[i].price_small, menuItems[i].price_large, menuItems[i].small_portion_name, menuItems[i].large_portion_name, item.sName);
-                catSection.appendChild(menuItem.element);
+            for (var i = 0, len = dishes.length; i < len; i++) {
+                var dish = new Dish(dishes[i].id, dishes[i].short_name, dishes[i].name, dishes[i].description, dishes[i].price_small, dishes[i].price_large, dishes[i].small_portion_name, dishes[i].large_portion_name, item.sName);
+                catSection.appendChild(dish.element);
                 if (i % 2 != 0) {
                     catSection.appendChild(clearDiv);
                 }
-                item.items.push(menuItems);
+                item.items.push(dish);
             }
             fragment.appendChild(catSection);
             fragment.appendChild(buttonInput);
@@ -59,7 +59,7 @@ $(function () {
         }
     }
 
-    function createCategoryItem(item){
+    function createCourse(item){
         var aCat = a.cloneNode(true),
             innerDiv = div.cloneNode(true),
             outerDiv = div.cloneNode(true),
@@ -83,6 +83,6 @@ $(function () {
         return outerDiv;
     }
 
-    window.CategoryItem = CategoryItem;
+    window.Course = Course;
 
 });

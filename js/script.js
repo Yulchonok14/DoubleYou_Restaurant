@@ -72,7 +72,7 @@ $(function () {
                 break;
             }
             case 'menuRef': {
-                getAllCategories('menu.json');
+                getAllCourses('menu.json');
                 break;
             }
             case 'basketRef': {
@@ -104,7 +104,7 @@ $(function () {
         );
     };
 
-    var getAllCategories = function (url) {
+    var getAllCourses = function (url) {
         if(categories.length !== 0){
             formCategoryHtml(categories);
         } else {
@@ -125,9 +125,9 @@ $(function () {
         sectionCat.addEventListener('click', clickCategoryEvent, false);
         menu = [];
         for (var i = 0, len = json.length; i < len; i++) {
-            var categoryItem = new CategoryItem(json[i].id, json[i].short_name, json[i].name, json[i].special_instructions, json[i].menu_items);
-            sectionCat.appendChild(categoryItem.element);
-            menu.push(categoryItem);
+            var course = new Course(json[i].id, json[i].short_name, json[i].name, json[i].special_instructions, json[i].menu_items);
+            sectionCat.appendChild(course.element);
+            menu.push(course);
         }
         insertMainContent(sectionCat);
     };

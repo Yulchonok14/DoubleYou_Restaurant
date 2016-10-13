@@ -10,7 +10,7 @@ $(function () {
         p = document.createElement('p'),
         hr = document.createElement('hr');
 
-    function MenuItem(id, sName, name, description, sPrice, lPrice, sPortionName, lPortionName, catSName) {
+    function Dish(id, sName, name, description, sPrice, lPrice, sPortionName, lPortionName, catSName) {
         this.id = id;
         this.sName = sName;
         this.name = name;
@@ -21,7 +21,7 @@ $(function () {
         this.lPortionName = lPortionName;
         this.catSName = catSName;
 
-        this.element = createMenuItem(this);
+        this.element = creatDish(this);
     }
 
     function getPortionName(name) {
@@ -44,7 +44,7 @@ $(function () {
         return false;
     }
 
-    function createMenuItem(item){
+    function creatDish(item){
         var outerDiv = div.cloneNode(true),
             rowDiv = div.cloneNode(true),
             colDiv = div.cloneNode(true),
@@ -108,6 +108,6 @@ $(function () {
         return outerDiv;
     }
 
-    window.MenuItem = MenuItem;
+    window.Dish = Dish;
 
 });
