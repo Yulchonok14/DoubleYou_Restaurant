@@ -1,3 +1,19 @@
-<div id="basket" class="text-center">
-    <h1>Basket is empty</h1>
-</div><!-- End of #basket-tile -->
+<div class="basket-item-tile row col-xxs-12">
+    <div id="image" class="col-lg-2 col-lg-offset-0 col-md-2 col-md-offset-0 col-sm-2 col-sm-offset-0 col-xs-3 col-xs-offset-1 col-xxs-12">
+        <div class="basket-item-image"><img class="img-responsive" src="images/menu/{{catShortName}}/{{short_name}}.jpg" alt="Dish"></div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8">
+        <h3 class="basket-item-title text-center">{{name}}</h3>
+        <div class="basket-item-price text-center">{{price_small}}<span> {{small_portion_name}}</span> {{price_large}} <span>{{large_portion_name}}</span></div>
+    </div>
+    <div id="quantPicker" class="col-lg-4 col-lg-offset-0 col-md-5 col-md-offset-0 col-sm-3 col-sm-offset-0 col-xs-5 col-xs-offset-3">
+        <div><label class="portion" for="pint">{{small_portion_name}}</label><input id="pint" class="quantity" type="number" value="1" min="1" max="99"></div>
+        <div><label class="portion" for="quart">{{large_portion_name}}</label><input id="quart" class="quantity" type="number" value="1" min="1" max="99"></div>
+    </div>
+    <div id="totals" class="text-center col-lg-2 col-sm-1 col-xs-1">
+        <div class="basket-item-total">{{small_portion_total}}</div>
+        <div class="basket-item-total">{{large_portion_total}}</div>
+    </div>
+</div>
+
+

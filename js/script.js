@@ -62,7 +62,7 @@ $(function () {
                 break;
             }
             case 'basketRef': {
-                changeContent(basketSnippet);
+                //changeContent(basketSnippet);
                 break;
             }
             case 'historyRef': {

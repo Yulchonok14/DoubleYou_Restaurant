@@ -186,7 +186,7 @@ body {
 .menu-item-tile .menu-item-price span {
   font-size: .6em;
 }
-.menu-item-tile .menu-item-price input {
+.quantity{
   color: @cherryColor;
   background-color: @lightGrayColor;
   border-color: @darkCherryColor;
@@ -261,6 +261,35 @@ h3.menu-item-title {
 #basket {
   height: 484px;
 }
+.basket-item-tile{
+  display: block;
+  margin: 0 auto;
+  width: 800px;
+}
+.basket-item-tile img{
+  height: 70px;
+}
+.basket-item-image{
+  border: 2px solid @darkCherryColor;
+}
+.basket-item-price{
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+.basket-item-title{
+  margin: 0 0 10px;
+}
+.portion{
+  font-weight: 500;
+  width: 40px;
+  margin-bottom: 10px;
+}
+.basket-item-total{
+  margin: 3px 0 10px;
+}
+#quantPicker{
+  text-align: right;
+}
 /* END BUSKET PAGE */
 
 /* HISTORY PAGE */
@@ -298,13 +327,11 @@ h3.menu-item-title {
   /* End Home Page */
 
   /* SINGLE CATEGORY PAGE */
-  .menu-item-tile .menu-item-price {
-    font-size: 1em;
-  }
   .menu-item-tile .menu-item-price input {
     margin-left: 0;
   }
   /* END SINGLE CATEGORY PAGE */
+
 }
 
 /********** Small devices only **********/
@@ -315,6 +342,15 @@ h3.menu-item-title {
     height: 432px;
   }
   /* End Home Page */
+
+  /* BUSKET PAGE */
+  .basket-item-tile{
+    width: 650px;
+  }
+  .basket-item-tile img {
+    height: 50px;
+  }
+  /* END BUSKET PAGE */
 }
 
 /********** Extra small devices only **********/
@@ -377,6 +413,21 @@ h3.menu-item-title {
     text-align: center;;
   }
   /* END SINGLE CATEGORY PAGE */
+
+  /* BUSKET PAGE */
+  .basket-item-tile{
+    width: 450px;
+  }
+  .basket-item-tile img {
+    height: 50px;
+  }
+  #quantPicker{
+    margin-top: 15px;
+  }
+  #totals{
+    margin-top: 15px;
+  }
+  /* END BUSKET PAGE */
 }
 
 
@@ -404,6 +455,11 @@ h3.menu-item-title {
     padding-left: 15px;
     float: left;
     width: 100%;
+  }
+  .col-xxs-12#image {
+    padding: 0;
+    margin-right:0;
+    width: 85px
   }
   /* END MENU CATEGORIES PAGE */
 }
