@@ -6,9 +6,7 @@ $(function () {
         basketSnippet = 'snippets/basket-snippet.html',
         historySnippet = 'snippets/history-snippet.html',
         containerNav = document.getElementById('container'),
-        mainDiv = document.getElementById('main-content'),
-        section = document.createElement('section'),
-        categories = [];
+        mainDiv = document.getElementById('main-content');
 
     function Menu() {}
 
@@ -19,8 +17,9 @@ $(function () {
     });
 
     var menu = new Menu();
-
     var restaurantAPI = new RestaurantAPI();
+    var courseHtml = new CourseHtml();
+    var dishHtml = new DishHtml();
 
     containerNav.addEventListener('click', clickNavEvent, false);
 
@@ -30,21 +29,8 @@ $(function () {
             index = menu.findIndex(function (item) {
                 return item.sName === sName;
             }),
-            category = menu[index];
-        insertMainContent(category.childElements);
-    }
-
-    function determineTarget(e) {
-        var target = e.target;
-
-        if(target.id === 'brand-name'){
-            target = target.parentNode.parentNode.parentNode.parentNode;
-        } else if(target.id === 'logo-img'){
-            target = target.parentNode.parentNode.parentNode;
-        } else if(target.tagName === 'SPAN'){
-            target = target.parentNode;
-        }
-        return target;
+            course = menu[index];
+        displayDishes(course.id);
     }
 
     function clickNavEvent(e) {
@@ -72,7 +58,7 @@ $(function () {
                 break;
             }
             case 'menuRef': {
-                getAllCourses('menu.json');
+                displayCourses('menu.json');
                 break;
             }
             case 'basketRef': {
@@ -90,10 +76,26 @@ $(function () {
         }
     }
 
-    var insertMainContent = function (html) {
-        mainDiv.innerHTML = '';
-        mainDiv.appendChild(html);
-    };
+    function clickDishPageEvent(e) {
+        var target = e.target;
+        if(target.id === 'quantity') {
+            e.preventDefault();
+            $(this).blur();
+        }
+    }
+
+    function determineTarget(e) {
+        var target = e.target;
+
+        if(target.id === 'brand-name'){
+            target = target.parentNode.parentNode.parentNode.parentNode;
+        } else if(target.id === 'logo-img'){
+            target = target.parentNode.parentNode.parentNode;
+        } else if(target.tagName === 'SPAN'){
+            target = target.parentNode;
+        }
+        return target;
+    }
 
     var changeContent = function(url){
         restaurantAPI.sendGetRequest(
@@ -102,34 +104,6 @@ $(function () {
                 mainDiv.innerHTML = html;
             }
         );
-    };
-
-    var getAllCourses = function (url) {
-        if(categories.length !== 0){
-            formCategoryHtml(categories);
-        } else {
-            restaurantAPI.sendGetRequest(
-                url,
-                function (json) {
-                    categories = JSON.parse(json);
-                    formCategoryHtml(categories);
-                }
-            );
-        }
-    };
-
-    var formCategoryHtml = function (json) {
-        var sectionCat = section.cloneNode(true);
-        sectionCat.id = 'section';
-        sectionCat.classList.add('row');
-        sectionCat.addEventListener('click', clickCategoryEvent, false);
-        menu = [];
-        for (var i = 0, len = json.length; i < len; i++) {
-            var course = new Course(json[i].id, json[i].short_name, json[i].name, json[i].special_instructions, json[i].menu_items);
-            sectionCat.appendChild(course.element);
-            menu.push(course);
-        }
-        insertMainContent(sectionCat);
     };
 
     changeContent(homeSnippet);
@@ -144,5 +118,136 @@ $(function () {
         setTimeout(closeMenu, 10);
     });
 
+
+    var getCourses = function (url) {
+        if(menu.length !== 0){
+            return menu;
+        } else {
+            return new Promise(function(resolve, reject) {
+                restaurantAPI.sendGetRequest(
+                    url,
+                    function (json) {
+                        var courses = createCourseObjs(JSON.parse(json));
+                        resolve(courses);
+                    }
+                );
+            });
+        }
+    };
+
+    var createCourseObjs = function (coursesJson) {
+        for(var i = 0, len = coursesJson.length; i < len; i++){
+            var newCourse = new Course(coursesJson[i].id, coursesJson[i].short_name, coursesJson[i].name, coursesJson[i].special_instructions, coursesJson[i].menu_items);
+            menu.push(newCourse);
+        }
+        return menu;
+    };
+
+    var getDishes = function (courseId) {
+        if(menu.length !== 0){
+            var index = menu.findIndex(function (course) {
+                return course.id === courseId;
+            });
+            if(index >= 0) {
+                return menu[index].items;
+            }
+        }
+    };
+
+    var buildCourseViewHtml = function(courses, courseHtml) {
+        var finalHtml = "<section id='section' class='row'>";
+
+        for (var i = 0, len = courses.length; i < len; i++) {
+            var html = courseHtml;
+            var name = "" + courses[i].name;
+            var sName = courses[i].sName;
+            html = insertProperty(html, "name", name);
+            html =  insertProperty(html, "short_name", sName);
+            finalHtml += html;
+        }
+
+        finalHtml += "</section>";
+        return finalHtml;
+    };
+
+    var buildDishViewHtml = function(course, dishArr, dishTitleHtml, dishHtml) {
+        dishTitleHtml = insertProperty(dishTitleHtml, "name", course.name);
+        dishTitleHtml = insertProperty(dishTitleHtml, "special_instructions", course.spInstruc);
+
+        var finalHtml = dishTitleHtml;
+        finalHtml += "<section class='row'>";
+
+        for (var i = 0, len = dishArr.length; i < len; i++) {
+            var html = dishHtml;
+            html = insertProperty(html, "short_name", dishArr[i].sName);
+            html = insertProperty(html, "catShortName", course.sName);
+            html = insertItemPrice(html, "price_small", dishArr[i].sPrice);
+            html = insertItemPortionName(html, "small_portion_name", dishArr[i].sPortionName);
+            html = insertItemPrice(html, "price_large", dishArr[i].lPrice);
+            html = insertItemPortionName(html, "large_portion_name", dishArr[i].lPortionName);
+            html = insertProperty(html, "name", dishArr[i].name);
+            html = insertProperty(html, "description", dishArr[i].description);
+            if (i % 2 != 0) {
+                html +=  "<div class='clearfix visible-lg-block visible-md-block'></div>";
+            }
+            finalHtml += html;
+        }
+
+        finalHtml += "</section>";
+        finalHtml += "<input type='button' id='basketButton' value='To Basket'>";
+        return finalHtml;
+    };
+
+
+    var insertItemPrice = function(html, pricePropName, priceValue) {
+        if (!priceValue) {
+            return insertProperty(html, pricePropName, "");
+        }
+        priceValue = "$" + priceValue.toFixed(2);
+        return insertProperty(html, pricePropName, priceValue);
+    };
+
+    var insertItemPortionName = function(html, portionPropName, portionValue) {
+        if (!portionValue) {
+            return insertProperty(html, portionPropName, "");
+        }
+        portionValue = "(" + portionValue + ")";
+        return insertProperty(html, portionPropName, portionValue);
+    };
+
+    var insertProperty = function (string, propName, propValue) {
+        var propToReplace = "{{" + propName + "}}";
+        string = string.replace(new RegExp(propToReplace, "g"), propValue);
+        return string;
+    };
+
+    var getCourseById = function (courseId) {
+        if(menu.length !== 0){
+            var index = menu.findIndex(function (course) {
+                return course.id === courseId;
+            });
+            if(index >= 0) {
+                return menu[index];
+            }
+        }
+    };
+
+    var displayCourses = function (dataFile) {
+        Promise.all([courseHtml.getCourseHTML(), getCourses(dataFile)]).then(function(results){
+            mainDiv.innerHTML = buildCourseViewHtml(results[1], results[0]);
+            var section = document.getElementById('section');
+            section.addEventListener('click', clickCategoryEvent, false);
+        });
+    };
+
+    var displayDishes = function (courseId) {
+        Promise.all([dishHtml.getDishTitleHTML(), dishHtml.getDishHTML(), getDishes(courseId)]).then(function(results){
+            mainDiv.innerHTML = buildDishViewHtml(getCourseById(courseId),results[2], results[0], results[1]);
+            var quantIntput = document.getElementById('main-content');
+            quantIntput.addEventListener('click', clickDishPageEvent, false);
+        });
+    };
+
 });
+
 
