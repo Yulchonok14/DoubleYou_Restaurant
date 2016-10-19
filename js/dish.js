@@ -7,10 +7,12 @@ $(function () {
         this.sName = sName;
         this.name = name;
         this.description = description;
-        this.sPrice = sPrice || '';
+        this.sPrice = sPrice;
         this.lPrice = lPrice;
         this.sPortionName = sPortionName;
         this.lPortionName = lPortionName;
+        this.sPortionQuant = 0;
+        this.lPortionQuant = 0;
     }
 
     window.Dish = Dish;

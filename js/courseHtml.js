@@ -2,6 +2,7 @@ $(function () {
 
     'use strict';
 
+    var dEmptyHtml = "snippets/course-empty-snippet.html";
     var cHtml = "snippets/course-snippet.html";
 
     function CourseHtml() {}
@@ -14,6 +15,16 @@ $(function () {
                 cHtml,
                 function (courseHtml) {
                     resolve(courseHtml);
+                });
+        })
+    };
+
+    CourseHtml.prototype.getCourseEmptyHTML = function () {
+        return new Promise(function (resolve, reject) {
+            restaurantAPI.sendGetRequest(
+                dEmptyHtml,
+                function (courseEmptyHtml) {
+                    resolve(courseEmptyHtml);
                 });
         })
     };

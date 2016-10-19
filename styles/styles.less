@@ -30,47 +30,48 @@ body {
 
 .navbar-brand {
   padding-top: 25px;
-}
 
-.navbar-brand h1 { /* Restaurant name */
-  font-family: 'Lora', serif;
-  color: @blueColor;
-  font-size: 1.5em;
-  text-transform: uppercase;
-  font-weight: bold;
-  text-shadow: 1px 1px 1px @blackColor;
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: .75;
+  h1 { /* Restaurant name */
+    font-family: 'Lora', serif;
+    color: @blueColor;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px @blackColor;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: .75;
+  }
+  p { /* Excellence cert */
+    color: @blackColor;
+    text-transform: uppercase;
+    font-size: .7em;
+    margin-top: 15px;
+
+    span { /* glyphicon-certificate */
+      vertical-align: middle;
+      font-size: 1.5em;
+    }
+  }
 }
 .navbar-brand a:hover, .navbar-brand a:focus {
   text-decoration: none;
 }
-.navbar-brand p { /* Excellence cert */
-  color: @blackColor;
-  text-transform: uppercase;
-  font-size: .7em;
-  margin-top: 15px;
-}
-.navbar-brand p span { /* glyphicon-certificate */
-  vertical-align: middle;
-  font-size: 1.5em;
-}
-
 #nav-list {
   margin-top: 10px;
-}
-#nav-list a {
-  color: @blueColor;
-  text-align: center;
+
+  a {
+    color: @blueColor;
+    text-align: center;
+
+    span {
+      font-size: 1.8em;
+    }
+  }
 }
 #nav-list a:hover {
   background: @backLightColor;
 }
-#nav-list a span {
-  font-size: 1.8em;
-}
-
 .navbar-header button.navbar-toggle, .navbar-header .icon-bar {
   border: 1px solid @cherryColor;
 }
@@ -87,9 +88,10 @@ body {
   padding-bottom: 30px;
   background-color: @blackColor;
   border-top: 0;
-}
-.panel-footer div.row {
-  margin-bottom: 35px;
+
+  div.row {
+    margin-bottom: 35px;
+  }
 }
 #hours, #address {
   line-height: 2;
@@ -152,18 +154,19 @@ body {
   width: 200px;
   height: 200px;
   margin: 0 auto 15px;
-}
-.category-tile span {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 1.2em;
-  text-transform: uppercase;
-  background-color: @blackColor;
-  color:@whiteColor;
-  opacity: .8;
+
+  span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    background-color: @blackColor;
+    color:@whiteColor;
+    opacity: .8;
+  }
 }
 .category-tile:hover {
   box-shadow: 0 1px 5px 1px @backLightColor;
@@ -173,18 +176,23 @@ body {
 /* SINGLE CATEGORY PAGE */
 .menu-item-tile {
   margin-bottom: 25px;
+
+  hr {
+    width: 80%;
+  }
+  .menu-item-price {
+    font-size: 1.1em;
+    text-align: right;
+    margin-top: -15px;
+    margin-right: -15px;
+
+    span {
+      font-size: .6em;
+    }
+  }
 }
-.menu-item-tile hr {
-  width: 80%;
-}
-.menu-item-tile .menu-item-price {
-  font-size: 1.1em;
-  text-align: right;
-  margin-top: -15px;
-  margin-right: -15px;
-}
-.menu-item-tile .menu-item-price span {
-  font-size: .6em;
+div#main-content.container {
+  min-height: 484px;
 }
 .quantity{
   color: @cherryColor;
@@ -205,23 +213,25 @@ body {
   margin-left: auto;
   margin-bottom: 20px;
   max-width: 250px;
-}
-.menu-item-photo div {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 32px;
-  height: 32px;
-  background-color: @cherryColor;
-  text-align: center;
-}
-.menu-item-photo div input{
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 30px;
-  height: 30px;
-  margin-left:2px;
+
+  div {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    background-color: @cherryColor;
+    text-align: center;
+
+    input{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      margin-left:2px;
+    }
+  }
 }
 .menu-item-description {
   padding-right: 30px;
@@ -249,25 +259,28 @@ h3.menu-item-title {
   box-shadow: 0 1px 5px 1px @backLightColor;
   cursor: pointer;
 }
+#basketButton:active{
+  background-color: @blueColor;
+}
 /* END SINGLE CATEGORY PAGE */
 
-/* MENU PAGE */
-#menu {
-  height: 484px;
-}
-/* END MENU PAGE */
-
 /* BUSKET PAGE */
-#basket {
-  height: 484px;
+#section{
+  margin-top: 50px;
 }
 .basket-item-tile{
   display: block;
   margin: 0 auto;
   width: 800px;
+
+  img{
+    height: 70px;
+  }
 }
-.basket-item-tile img{
-  height: 70px;
+.basket-item-tile:hover{
+  .delete{
+    opacity: 1;
+  }
 }
 .basket-item-image{
   border: 2px solid @darkCherryColor;
@@ -281,7 +294,6 @@ h3.menu-item-title {
 }
 .portion{
   font-weight: 500;
-  width: 40px;
   margin-bottom: 10px;
 }
 .basket-item-total{
@@ -289,6 +301,45 @@ h3.menu-item-title {
 }
 #quantPicker{
   text-align: right;
+}
+.orderPrice{
+  margin: 0 auto;
+  font-size: 20px;
+}
+.delete {
+  opacity: 0;
+  transition: opacity 0.3s linear;
+  background: url(../images/gtk_close.ico) no-repeat transparent;
+  width: 10px;
+  height: 30px;
+  border: none;
+  background-size: cover;
+}
+#orderButton {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  font-size: 24px;
+  color:@cherryColor;
+  border-color: @darkCherryColor;
+  background-color: @lightGrayColor;
+  margin-top: 20px;
+}
+#orderButton:hover {
+  box-shadow: 0 1px 5px 1px @backLightColor;
+  cursor: pointer;
+}
+#orderButton:active{
+  background-color: @blueColor;
+}
+.tPrice{
+  text-align: right;
+}
+.footerPrice{
+  margin-bottom: 20px;
+}
+hr{
+  width: 50%;
 }
 /* END BUSKET PAGE */
 
@@ -306,6 +357,12 @@ h3.menu-item-title {
     height: 675px;
   }
   /* End Home Page */
+
+  /* BUSKET PAGE */
+  .orderPrice{
+    margin: 0 150px;
+  }
+  /* END BUSKET PAGE */
 }
 
 /********** Medium devices only **********/
@@ -332,6 +389,11 @@ h3.menu-item-title {
   }
   /* END SINGLE CATEGORY PAGE */
 
+  /* BUSKET PAGE */
+  .orderPrice{
+    margin: 0 150px;
+  }
+  /* END BUSKET PAGE */
 }
 
 /********** Small devices only **********/
@@ -346,9 +408,10 @@ h3.menu-item-title {
   /* BUSKET PAGE */
   .basket-item-tile{
     width: 650px;
-  }
-  .basket-item-tile img {
-    height: 50px;
+
+    img {
+      height: 50px;
+    }
   }
   /* END BUSKET PAGE */
 }
@@ -359,25 +422,27 @@ h3.menu-item-title {
   .navbar-brand {
     padding-top: 10px;
     height: 80px;
-  }
-  .navbar-brand h1 { /* Restaurant name */
-    padding-top: 10px;
-    font-size: 5vw; /* 1vw = 1% of viewport width */
-  }
-  .navbar-brand p { /* Kosher cert */
-    font-size: .6em;
-    margin-top: 12px;
-  }
-  .navbar-brand p img { /* Star-K */
-    height: 20px;
-  }
 
+    h1 { /* Restaurant name */
+      padding-top: 10px;
+      font-size: 5vw; /* 1vw = 1% of viewport width */
+    }
+    p { /* Kosher cert */
+      font-size: .6em;
+      margin-top: 12px;
+
+      img { /* Star-K */
+        height: 20px;
+      }
+    }
+  }
   #collapsable-nav a { /* Collapsed nav menu text */
     font-size: 1.2em;
-  }
-  #collapsable-nav a span { /* Collapsed nav menu glyph */
-    font-size: 1em;
-    margin-right: 5px;
+
+    span { /* Collapsed nav menu glyph */
+      font-size: 1em;
+      margin-right: 5px;
+    }
   }
   /* End Header */
 
@@ -385,9 +450,6 @@ h3.menu-item-title {
   .panel-footer section {
     margin-bottom: 30px;
     text-align: center;
-  }
-  .panel-footer section hr {
-    width: 50%;
   }
   /* End Footer */
 
@@ -417,12 +479,13 @@ h3.menu-item-title {
   /* BUSKET PAGE */
   .basket-item-tile{
     width: 450px;
-  }
-  .basket-item-tile img {
-    height: 50px;
+    img {
+      height: 50px;
+    }
   }
   #quantPicker{
     margin-top: 15px;
+    padding-right: 0px;
   }
   #totals{
     margin-top: 15px;
@@ -455,11 +518,11 @@ h3.menu-item-title {
     padding-left: 15px;
     float: left;
     width: 100%;
-  }
-  .col-xxs-12#image {
-    padding: 0;
-    margin-right:0;
-    width: 85px
+    #image {
+      padding: 0;
+      margin-right:0;
+      width: 85px
+    }
   }
   /* END MENU CATEGORIES PAGE */
 }

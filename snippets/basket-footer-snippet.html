@@ -1,0 +1,13 @@
+<div class='orderPrice row'>
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 footerPrice">
+        <div>Total price: </div>
+        <div>You discount is </div>
+        <div>Discount total price: </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2  footerPrice">
+        <div id='dollars' class="tPrice">${{orderPrice}}</div>
+        <div id="discount" class="tPrice">-{{discount}}%</div>
+        <div id="discDollars" class="tPrice">${{discOrderPrice}}</div>
+    </div>
+    <input type='button' id='orderButton' value='Order'>
+</div>
