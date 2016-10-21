@@ -1,13 +1,31 @@
-<div class='orderPrice row'>
+<div class="orderPrice row">
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 footerPrice">
         <div>Total price: </div>
         <div>You discount is </div>
         <div>Discount total price: </div>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2  footerPrice">
-        <div id='dollars' class="tPrice">${{orderPrice}}</div>
+        <div id="dollars" class="tPrice">${{orderPrice}}</div>
         <div id="discount" class="tPrice">-{{discount}}%</div>
         <div id="discDollars" class="tPrice">${{discOrderPrice}}</div>
     </div>
-    <input type='button' id='orderButton' value='Order'>
+    <input type="button" id="orderButton" value="Order" data-toggle="modal" data-target="#additInfoModal">
+
+    <form id="modalForm">
+        <input type="button" id="modalClose" class="closeModal col-lg-1 col-lg-offset-11 col-md-1 col-md-offset-11 col-sm-1 col-sm-offset-11 col-xs-2 col-xs-offset-10 pull-right">
+        <div id="eMailDiv">
+            <label for="eMail" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xxs-12">E-mail: </label>
+            <input id="eMail" class="inputForm col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xxs-12" required>
+        </div>
+        <div id="timeDiv">
+            <label for="timeDelivery" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xxs-12">Delivery time: </label>
+            <input id="timeDelivery" class="inputForm col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xxs-12" required>
+        </div>
+        <div>
+            <label for="wishes" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">Wishes:</label>
+            <textarea id="wishes" class="inputForm col-lg-12 col-md-12 col-sm-12 col-xs-12"></textarea>
+        </div>
+        <input type="submit" id="sendButton" value="Send">
+    </form>
+    <div id='overlay'></div><!-- Пoдлoжкa -->
 </div>

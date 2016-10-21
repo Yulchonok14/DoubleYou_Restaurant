@@ -6,12 +6,17 @@
 @backLightColor:#ccc;
 @milkyGrayColor:#f2f2f2;
 @lightGrayColor:#d9d9d9;
+@darkRedColor:#b30000;
 
 body {
   font-size: 16px;
   color: @whiteColor;
   background-color: @cherryColor;
   font-family: 'Oxygen', sans-serif;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 /** HEADER **/
@@ -106,7 +111,6 @@ body {
 }
 /* END FOOTER */
 
-
 /* HOME PAGE */
 .container .jumbotron {
   box-shadow: 0 0 50px @darkCherryColor;
@@ -192,7 +196,7 @@ body {
   }
 }
 div#main-content.container {
-  min-height: 484px;
+  min-height: 504px;
 }
 .quantity{
   color: @cherryColor;
@@ -310,10 +314,19 @@ h3.menu-item-title {
   opacity: 0;
   transition: opacity 0.3s linear;
   background: url(../images/gtk_close.ico) no-repeat transparent;
-  width: 10px;
+  //width: 10px;
   height: 30px;
   border: none;
   background-size: cover;
+}
+.closeModal{
+  background: url(../images/gtk_close.ico) no-repeat transparent;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  transform: scale(0.5);
+  border: none;
+  outline: none;
 }
 #orderButton {
   display: block;
@@ -323,7 +336,6 @@ h3.menu-item-title {
   color:@cherryColor;
   border-color: @darkCherryColor;
   background-color: @lightGrayColor;
-  margin-top: 20px;
 }
 #orderButton:hover {
   box-shadow: 0 1px 5px 1px @backLightColor;
@@ -334,6 +346,105 @@ h3.menu-item-title {
 }
 .tPrice{
   text-align: right;
+}
+#modalForm {
+  color: @lightGrayColor;
+  height: 30%;
+  min-height: 350px;
+  border-radius: 5px;
+  border: 3px solid @darkCherryColor;
+  background: @cherryColor;
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  margin-top: -150px;
+  //margin-left: -300px;
+  display: none;
+  opacity: 0;
+  z-index: 3;
+  padding: 0 10px;
+  input, textarea{
+    color:@blackColor;
+    outline: none;
+    margin-bottom: 15px;
+  }
+  #timeDelivery{
+    color : transparent;
+    text-shadow : 0 0 0 @blackColor;
+  }
+}
+#wishes{
+  height: 80px;
+  font-size: 16px;
+}
+.inputForm {
+  background-color: @lightGrayColor;
+}
+#overlay {
+  z-index:2;
+  position:fixed;
+  background-color:@blackColor;
+  opacity:0.5;
+  filter:alpha(opacity=80);
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  cursor:pointer;
+  display:none;
+}
+ul.ui-timepicker-list{
+  background-color: @cherryColor;
+  border: 2px solid @darkCherryColor;
+  z-index:4;
+  position: absolute;
+  list-style: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  overflow: auto;
+  height: 200px;
+}
+#sendButton {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  font-size: 24px;
+  color:@cherryColor;
+  border-color: @darkCherryColor;
+  background-color: @lightGrayColor;
+}
+#sendButton:hover {
+  box-shadow: 0 1px 5px 1px @backLightColor;
+  cursor: pointer;
+}
+#sendButton:active {
+  background-color: @blueColor;
+}
+.hint() {
+  position:absolute;
+  background-color: @cherryColor;
+  color: @lightGrayColor;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  margin-left: -30px;
+  border: 1px solid;
+  font-size: 16px;
+}
+#eMailDiv.submitted:after {
+  .hint;
+  content:"Please, enter e-mail";
+  width: 160px;
+  margin-top: 70px;
+}
+#timeDiv.submitted:after {
+  .hint;
+  content:"Please, enter delivery time";
+  width: 210px;
+  margin-top: 120px;
+}
+#eMail.submitted:invalid, #timeDelivery.submitted:invalid{
+  border: 2px solid @darkRedColor;
 }
 .footerPrice{
   margin-bottom: 20px;
@@ -361,6 +472,13 @@ hr{
   /* BUSKET PAGE */
   .orderPrice{
     margin: 0 150px;
+  }
+  .delete {
+    width: 10px;
+  }
+  #modalForm {
+    width: 40%;
+    margin-left: -20%;
   }
   /* END BUSKET PAGE */
 }
@@ -393,7 +511,19 @@ hr{
   .orderPrice{
     margin: 0 150px;
   }
+  .delete {
+    width: 10px;
+  }
+  #modalForm {
+    width: 50%;
+    margin-left: -25%;
+  }
   /* END BUSKET PAGE */
+  /* HISTORY PAGE */
+  #history {
+    height: 508px;
+  }
+  /* END HISTORY PAGE */
 }
 
 /********** Small devices only **********/
@@ -413,7 +543,19 @@ hr{
       height: 50px;
     }
   }
+  .delete {
+    width: 10px;
+  }
+  #modalForm {
+    width: 50%;
+    margin-left: -25%;
+  }
   /* END BUSKET PAGE */
+  /* HISTORY PAGE */
+  #history {
+    height: 508px;
+  }
+  /* END HISTORY PAGE */
 }
 
 /********** Extra small devices only **********/
@@ -490,6 +632,18 @@ hr{
   #totals{
     margin-top: 15px;
   }
+  #modalForm {
+    width: 80%;
+    margin-left: -40%;
+  }
+  #eMailDiv.submitted:after {
+    margin-left: -90px;
+    margin-top: 35px;
+  }
+  #timeDiv.submitted:after {
+    margin-left: -140px;
+    margin-top: 140px;
+  }
   /* END BUSKET PAGE */
 }
 
@@ -500,6 +654,9 @@ hr{
   .navbar-brand h1 { /* Restaurant name */
     padding-top: 5px;
     font-size: 6vw;
+  }
+  .navbar-header button.navbar-toggle {
+    margin-right: 5px;
   }
   /* End Header */
 
@@ -525,7 +682,22 @@ hr{
     }
   }
   /* END MENU CATEGORIES PAGE */
+
+  /* BUSKET PAGE */
+  #modalForm {
+    min-height: 420px;
+  }
+  #eMailDiv.submitted:after {
+    margin-left: -130px;
+    margin-top: 75px;
+  }
+  #timeDiv.submitted:after {
+    margin-left: -180px;
+    margin-top: 200px;
+  }
+  .delete{
+    padding-right:0;
+    padding-left: 0;
+  }
+  /* END BUSKET PAGE */
 }
-
-
-

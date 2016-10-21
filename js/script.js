@@ -406,7 +406,10 @@ $(function () {
     };
 
     var displayCourses = function (dataFile) {
-        Promise.all([courseHtml.getCourseHTML(), getCourses(dataFile)]).then(function(results){
+        Promise.all([
+            courseHtml.getCourseHTML(),
+            getCourses(dataFile)
+        ]).then(function(results){
             if(results[1].length === 0){
                 courseHtml.getCourseEmptyHTML().then(function (result) {
                     mainDiv.innerHTML = result;
@@ -420,7 +423,11 @@ $(function () {
     };
 
     var displayDishes = function (courseId) {
-        Promise.all([dishHtml.getDishTitleHTML(), dishHtml.getDishHTML(), getDishes(courseId)]).then(function(results){
+        Promise.all([
+            dishHtml.getDishTitleHTML(),
+            dishHtml.getDishHTML(),
+            getDishes(courseId)
+        ]).then(function(results){
             mainDiv.innerHTML = buildDishViewHtml(getCourseById(courseId),results[2], results[0], results[1]);
             var basketButton = document.getElementById('basketButton');
             basketButton.addEventListener('click', clickBasketButtonEvent, false);
@@ -443,8 +450,20 @@ $(function () {
             ]).then(function (result) {
                 mainDiv.innerHTML = buildBasketViewHtml(result[0], result[1], result[2], result[3], orderAr);
                 var section = document.getElementById('section');
+                var orderBut = document.getElementById('orderButton');
+                var email = document.getElementById('eMail');
+                var time = document.getElementById('timeDelivery');
+                var modalForm = document.getElementById('modalForm');
+                var sendBut = document.getElementById('sendButton');
+                modalForm.addEventListener('invalid', invalidInput, true); //event for deleting default hint while error\
+                email.addEventListener('click', changeEmailEvent, false);
+                email.addEventListener('input', changeEmailEvent, false);
+                time.addEventListener('click', changeTimeEvent, false);
+                time.addEventListener('input', changeTimeEvent, false);
                 section.addEventListener('click', clickCloseEvent, false);
                 section.addEventListener('change', changeQuantEvent, false);
+                orderBut.addEventListener('click', clickOrderEvent, false);
+                sendBut.addEventListener('click', clickSendEvent, false);
                 var quantInputs = mainDiv.getElementsByClassName('quantity');
                 for(var i = 0, len = quantInputs.length; i < len; i++){
                     if(quantInputs[i].getAttribute('data-visibility') === 'hidden'){
@@ -454,6 +473,86 @@ $(function () {
             });
         }
     };
+
+    function changeEmailEvent() {
+        $('#eMailDiv').removeClass('submitted');
+        $('#eMail').removeClass('submitted');
+    }
+
+    function changeTimeEvent() {
+        $('#timeDiv').removeClass('submitted');
+        $('#timeDelivery').removeClass('submitted');
+    }
+
+    function invalidInput(e) {
+        e.target.setCustomValidity(' ');
+    }
+
+    function clickSendEvent() {
+    }
+
+    function clickOrderEvent() {
+        $('body').addClass('modal-open');
+        $('#eMail').val('');
+        $('#timeDelivery').val('');
+        $('.ui-timepicker-list').css('display', 'block');
+
+        $('#timeDelivery').timepicker({
+            'minTime': '2:00pm',
+            'maxTime': '24:00pm'
+        });
+        $('#overlay').fadeIn(400, function(){
+            $('#modalForm')
+                .css('display', 'block')
+                .animate({opacity: 1, top: '50%'}, 200);
+        });
+        $('#modalClose, #overlay').click( function(){
+            $('#modalForm')
+                .animate({opacity: 0, top: '45%'}, 200,
+                    function(){
+                        $(this).css('display', 'none');
+                        $('#overlay').fadeOut(400);
+                    }
+                );
+            $("body").removeClass("modal-open");
+            $('#eMailDiv').removeClass('submitted');
+            $('#eMail').removeClass('submitted');
+            $('#timeDiv').removeClass('submitted');
+            $('#timeDelivery').removeClass('submitted');
+            $('.ui-timepicker-list').css('display', 'none');
+        });
+        $('#sendButton').click(function () {
+            var email = $('#eMail').val(),
+                time = $('#timeDelivery').val();
+            if(email.length === 0){
+                $('#eMailDiv').addClass('submitted');
+                $('#eMail').addClass('submitted');
+            }
+            if(time.length === 0){
+                $('#timeDiv').addClass('submitted');
+                $('#timeDelivery').addClass('submitted');
+            }
+            var display = $('.ui-timepicker-wrapper').css('display');
+            if(display === 'block') {
+                return;
+            }
+            if(email.length !== 0 && time.length !== 0) {
+                $('#eMailDiv').removeClass('submitted');
+                $('#eMail').removeClass('submitted');
+                $('#timeDiv').removeClass('submitted');
+                $('#timeDelivery').removeClass('submitted');
+                $('#modalForm')
+                    .animate({opacity: 0, top: '45%'}, 200,
+                        function () {
+                            $(this).css('display', 'none');
+                            $('#overlay').fadeOut(400);
+                        }
+                    );
+                $('body').removeClass('modal-open');
+                $('.ui-timepicker-list').css('display', 'none');
+            }
+        });
+    }
 });
 
 
