@@ -1,0 +1,710 @@
+@whiteColor:#fff;
+@blackColor:#000;
+@blueColor:#00BFFF;
+@cherryColor:#61122f;
+@darkCherryColor: #3F0C1F;
+@backLightColor:#ccc;
+@milkyGrayColor:#f2f2f2;
+@lightGrayColor:#d9d9d9;
+@darkRedColor:#b30000;
+
+body {
+  font-size: 16px;
+  color: @whiteColor;
+  background-color: @cherryColor;
+  font-family: 'Oxygen', sans-serif;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/** HEADER **/
+#header-nav {
+  background-color: #f6b319;
+  border-radius: 0;
+  border: 0;
+}
+
+#logo-img {
+  background: url('../images/restaurant-logo_large.jpg') no-repeat;
+  width: 175px;
+  height: 140px;
+  margin: 10px 15px 10px 0;
+}
+
+.navbar-brand {
+  padding-top: 25px;
+
+  h1 { /* Restaurant name */
+    font-family: 'Lora', serif;
+    color: @blueColor;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px @blackColor;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: .75;
+  }
+  p { /* Excellence cert */
+    color: @blackColor;
+    text-transform: uppercase;
+    font-size: .7em;
+    margin-top: 15px;
+
+    span { /* glyphicon-certificate */
+      vertical-align: middle;
+      font-size: 1.5em;
+    }
+  }
+}
+.navbar-brand a:hover, .navbar-brand a:focus {
+  text-decoration: none;
+}
+#nav-list {
+  margin-top: 10px;
+
+  a {
+    color: @blueColor;
+    text-align: center;
+
+    span {
+      font-size: 1.8em;
+    }
+  }
+}
+#nav-list a:hover {
+  background: @backLightColor;
+}
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+  border: 1px solid @cherryColor;
+}
+.navbar-header button.navbar-toggle {
+  clear: both;
+  margin-top: -30px;
+}
+/* END HEADER */
+
+/* FOOTER */
+.panel-footer {
+  margin-top: 30px;
+  padding-top: 35px;
+  padding-bottom: 30px;
+  background-color: @blackColor;
+  border-top: 0;
+
+  div.row {
+    margin-bottom: 35px;
+  }
+}
+#hours, #address {
+  line-height: 2;
+}
+#hours > span, #address > span {
+  font-size: 1.3em;
+}
+#address p {
+  color: @blueColor;
+  font-size: .8em;
+  line-height: 1.8;
+}
+/* END FOOTER */
+
+/* HOME PAGE */
+.container .jumbotron {
+  box-shadow: 0 0 50px @darkCherryColor;
+  border: 2px solid @darkCherryColor;
+}
+
+#menu-tile, #specials-tile, #map-tile {
+  height: 250px;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+  border: 2px solid @darkCherryColor;
+  overflow: hidden;
+}
+#menu-tile:hover, #specials-tile:hover, #map-tile:hover {
+  box-shadow: 0 1px 5px 1px @backLightColor;
+}
+#menu-tile {
+  background: url('../images/menu-tile.jpg') no-repeat;
+  background-position: center;
+}
+#specials-tile {
+  background: url('../images/specials-tile.jpg') no-repeat;
+  background-position: center;
+}
+#menu-tile span, #specials-tile span, #map-tile span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.6em;
+  text-transform: uppercase;
+  background-color: @blackColor;
+  color: @whiteColor;
+  opacity: .8;
+}
+/* END HOME PAGE */
+
+/* MENU CATEGORIES PAGE */
+.category-tile {
+  position: relative;
+  border: 2px solid @darkCherryColor;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 15px;
+
+  span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    background-color: @blackColor;
+    color:@whiteColor;
+    opacity: .8;
+  }
+}
+.category-tile:hover {
+  box-shadow: 0 1px 5px 1px @backLightColor;
+}
+/* END MENU CATEGORIES PAGE */
+
+/* SINGLE CATEGORY PAGE */
+.menu-item-tile {
+  margin-bottom: 25px;
+
+  hr {
+    width: 80%;
+  }
+  .menu-item-price {
+    font-size: 1.1em;
+    text-align: right;
+    margin-top: -15px;
+    margin-right: -15px;
+
+    span {
+      font-size: .6em;
+    }
+  }
+}
+#main-content.container {
+  min-height: 482px;
+}
+.quantity{
+  color: transparent;
+  text-shadow: 0 0 0 @cherryColor;
+  background-color: @lightGrayColor;
+  border-color: @darkCherryColor;
+  width: 40px;
+  height: 25px;
+  margin-left: 5px;
+  text-align: center;
+  outline: none;
+}
+.menu-item-photo {
+  position: relative;
+  border: 2px solid @darkCherryColor;
+  overflow: hidden;
+  padding: 0;
+  margin-right: -15px;
+  margin-left: auto;
+  margin-bottom: 20px;
+  max-width: 250px;
+
+  div {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    background-color: @cherryColor;
+    text-align: center;
+
+    input{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      margin-left:2px;
+    }
+  }
+}
+.menu-item-description {
+  padding-right: 30px;
+}
+h3.menu-item-title {
+  margin: 0 0 10px;
+}
+.menu-item-details {
+  font-size: .9em;
+  font-style: italic;
+}
+#menu-categories-title + div {
+  margin-bottom: 50px;
+}
+#basketButton {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  font-size: 24px;
+  color:@cherryColor;
+  border-color: @darkCherryColor;
+  background-color: @lightGrayColor;
+}
+#basketButton:hover {
+  box-shadow: 0 1px 5px 1px @backLightColor;
+  cursor: pointer;
+}
+#basketButton:active{
+  background-color: @blueColor;
+}
+/* END SINGLE CATEGORY PAGE */
+
+/* BUSKET PAGE */
+#section{
+  margin-top: 50px;
+}
+.basket-item-tile{
+  display: block;
+  margin: 0 auto;
+  width: 800px;
+
+  img{
+    height: 70px;
+  }
+}
+.basket-item-tile:hover{
+  .delete{
+    opacity: 1;
+  }
+}
+.basket-item-image{
+  border: 2px solid @darkCherryColor;
+}
+.basket-item-price{
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+.basket-item-title{
+  margin: 0 0 10px;
+}
+.portion{
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.basket-item-total{
+  margin: 3px 0 10px;
+}
+#quantPicker{
+  text-align: right;
+}
+.orderPrice{
+  margin: 0 auto;
+  font-size: 20px;
+}
+.delete {
+  opacity: 0;
+  transition: opacity 0.3s linear;
+  background: url(../images/gtk_close.ico) no-repeat transparent;
+  //width: 10px;
+  height: 30px;
+  border: none;
+  background-size: cover;
+}
+.closeModal{
+  background: url(../images/gtk_close.ico) no-repeat transparent;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  transform: scale(0.5);
+  border: none;
+  outline: none;
+}
+#orderButton {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  font-size: 24px;
+  color:@cherryColor;
+  border-color: @darkCherryColor;
+  background-color: @lightGrayColor;
+}
+#orderButton:hover {
+  box-shadow: 0 1px 5px 1px @backLightColor;
+  cursor: pointer;
+}
+#orderButton:active{
+  background-color: @blueColor;
+}
+.tPrice{
+  text-align: right;
+}
+#modalForm {
+  color: @lightGrayColor;
+  height: 30%;
+  min-height: 350px;
+  border-radius: 5px;
+  border: 3px solid @darkCherryColor;
+  background: @cherryColor;
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  margin-top: -150px;
+  //margin-left: -300px;
+  display: none;
+  opacity: 0;
+  z-index: 3;
+  padding: 0 10px;
+  input, textarea{
+    color:@blackColor;
+    outline: none;
+    margin-bottom: 15px;
+  }
+  #timeDelivery{
+    color : transparent;
+    text-shadow : 0 0 0 @blackColor;
+  }
+}
+#wishes{
+  height: 80px;
+  font-size: 16px;
+}
+.inputForm {
+  background-color: @lightGrayColor;
+}
+#overlay {
+  z-index:2;
+  position:fixed;
+  background-color:@blackColor;
+  opacity:0.5;
+  filter:alpha(opacity=80);
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  cursor:pointer;
+  display:none;
+}
+ul.ui-timepicker-list{
+  background-color: @cherryColor;
+  border: 2px solid @darkCherryColor;
+  z-index:4;
+  position: absolute;
+  list-style: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  overflow: auto;
+  height: 200px;
+}
+#sendButton {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  font-size: 24px;
+  color:@cherryColor;
+  border-color: @darkCherryColor;
+  background-color: @lightGrayColor;
+}
+#sendButton:hover {
+  box-shadow: 0 1px 5px 1px @backLightColor;
+  cursor: pointer;
+}
+#sendButton:active {
+  background-color: @blueColor;
+}
+.hint() {
+  position:absolute;
+  background-color: @cherryColor;
+  color: @lightGrayColor;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  margin-left: -30px;
+  border: 1px solid;
+  font-size: 16px;
+}
+#eMailDiv.submitted:after {
+  .hint;
+  content:"Please, enter e-mail";
+  width: 160px;
+  margin-top: 70px;
+}
+#timeDiv.submitted:after {
+  .hint;
+  content:"Please, enter delivery time";
+  width: 210px;
+  margin-top: 120px;
+}
+#eMail.submitted:invalid, #timeDelivery.submitted:invalid{
+  border: 2px solid @darkRedColor;
+}
+.footerPrice{
+  margin-bottom: 20px;
+}
+hr{
+  width: 50%;
+}
+/* END BUSKET PAGE */
+
+/* HISTORY PAGE */
+#history {
+  height: 484px;
+}
+/* END HISTORY PAGE */
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+  /* Home Page */
+  .container .jumbotron {
+    background: url('../images/DoubleYouView_1200.jpg') no-repeat;
+    height: 675px;
+  }
+  /* End Home Page */
+
+  /* BUSKET PAGE */
+  .orderPrice{
+    margin: 0 150px;
+  }
+  .delete {
+    width: 10px;
+  }
+  #modalForm {
+    width: 40%;
+    margin-left: -20%;
+  }
+  /* END BUSKET PAGE */
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* Header */
+  #logo-img {
+    background: url('../images/restaurant-logo_medium.jpg') no-repeat;
+    width: 100px;
+    height: 80px;
+    margin: 5px 5px 5px 0;
+  }
+  /* End Header */
+
+  /* Home Page */
+  .container .jumbotron {
+    background: url('../images/DoubleYouView_992.jpg') no-repeat;
+    height: 558px;
+  }
+  /* End Home Page */
+
+  /* SINGLE CATEGORY PAGE */
+  .menu-item-tile .menu-item-price input {
+    margin-left: 0;
+  }
+  /* END SINGLE CATEGORY PAGE */
+
+  /* BUSKET PAGE */
+  div#main-content.container {
+    min-height: 528px;
+  }
+  .orderPrice{
+    margin: 0 150px;
+  }
+  .delete {
+    width: 10px;
+  }
+  #modalForm {
+    width: 50%;
+    margin-left: -25%;
+  }
+  /* END BUSKET PAGE */
+  /* HISTORY PAGE */
+  #history {
+    height: 508px;
+  }
+  /* END HISTORY PAGE */
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Home Page */
+  .container .jumbotron {
+    background: url('../images/DoubleYouView_768.jpg') no-repeat;
+    height: 432px;
+  }
+  /* End Home Page */
+
+  /* BUSKET PAGE */
+  div#main-content.container {
+    min-height: 528px;
+  }
+  .basket-item-tile{
+    width: 650px;
+
+    img {
+      height: 50px;
+    }
+  }
+  .delete {
+    width: 10px;
+  }
+  #modalForm {
+    width: 50%;
+    margin-left: -25%;
+  }
+  /* END BUSKET PAGE */
+  /* HISTORY PAGE */
+  #history {
+    height: 508px;
+  }
+  /* END HISTORY PAGE */
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  /* Header */
+  .navbar-brand {
+    padding-top: 10px;
+    height: 80px;
+
+    h1 { /* Restaurant name */
+      padding-top: 10px;
+      font-size: 5vw; /* 1vw = 1% of viewport width */
+    }
+    p { /* Kosher cert */
+      font-size: .6em;
+      margin-top: 12px;
+
+      img { /* Star-K */
+        height: 20px;
+      }
+    }
+  }
+  #collapsable-nav a { /* Collapsed nav menu text */
+    font-size: 1.2em;
+
+    span { /* Collapsed nav menu glyph */
+      font-size: 1em;
+      margin-right: 5px;
+    }
+  }
+  /* End Header */
+
+  /* Footer */
+  .panel-footer section {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  /* End Footer */
+
+  /* Home Page */
+  .container .jumbotron {
+    margin-top: 30px;
+    padding: 0;
+  }
+  #menu-tile, #specials-tile {
+    width: 360px;
+    margin: 0 auto 15px;
+  }
+  /* End Home Page */
+
+  /* SINGLE CATEGORY PAGE */
+  .menu-item-photo {
+    margin-right: auto;
+  }
+  .menu-item-tile .menu-item-price {
+    text-align: center;
+  }
+  .menu-item-description {
+    text-align: center;;
+  }
+  /* END SINGLE CATEGORY PAGE */
+
+  /* BUSKET PAGE */
+  .basket-item-tile{
+    width: 450px;
+    img {
+      height: 50px;
+    }
+  }
+  #quantPicker{
+    margin-top: 15px;
+    padding-right: 0px;
+  }
+  #totals{
+    margin-top: 15px;
+  }
+  #modalForm {
+    width: 80%;
+    margin-left: -40%;
+  }
+  #eMailDiv.submitted:after {
+    margin-left: -90px;
+    margin-top: 35px;
+  }
+  #timeDiv.submitted:after {
+    margin-left: -140px;
+    margin-top: 140px;
+  }
+  /* END BUSKET PAGE */
+}
+
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+  /* Header */
+  .navbar-brand h1 { /* Restaurant name */
+    padding-top: 5px;
+    font-size: 6vw;
+  }
+  .navbar-header button.navbar-toggle {
+    margin-right: 5px;
+  }
+  /* End Header */
+
+  /* Home page */
+  #menu-tile, #specials-tile {
+    width: 280px;
+    margin: 0 auto 15px;
+  }
+  /* End Home Page */
+
+  /* MENU CATEGORIES PAGE */
+  .col-xxs-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+    width: 100%;
+    #image {
+      padding: 0;
+      margin-right:0;
+      width: 85px
+    }
+  }
+  /* END MENU CATEGORIES PAGE */
+
+  /* BUSKET PAGE */
+  #modalForm {
+    min-height: 420px;
+  }
+  #eMailDiv.submitted:after {
+    margin-left: -130px;
+    margin-top: 75px;
+  }
+  #timeDiv.submitted:after {
+    margin-left: -180px;
+    margin-top: 200px;
+  }
+  .delete{
+    padding-right:0;
+    padding-left: 0;
+  }
+  /* END BUSKET PAGE */
+}
