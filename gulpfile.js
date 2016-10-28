@@ -17,61 +17,59 @@ var gulp = require('gulp'),
     less = require('gulp-less'),
     path = require('path'),
     clean = require('gulp-clean'),
+    watch = require('gulp-watch'),
     del = require('del');
 
-gulp.task('less', function () {
+
+gulp.task('lessToCss', function () {
     return gulp.src('app/styles/**/*.less')
         .pipe(less())
-        .pipe(gulp.dest('app/styles/tmp'));
+        .pipe(concat('styles.css'))
+        .pipe(minifycss())
+        .pipe(gulp.dest('dist/styles/'));
 });
 
-gulp.task('clean-tmp-css', ['concat'], function () {
-    del(['app/styles/tmp', 'dist/styles/tmp']);
-});
-
-gulp.task('jshint', function() {
+gulp.task('jshint', function () {
     return gulp.src(['app/**/*.js', '!app/libs/**/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('clean-dist', function() {
+gulp.task('clean-dist', function () {
     return del(['dist']);
 });
 
-gulp.task('usemin',['jshint'], function () {
+gulp.task('usemin', ['jshint'], function () {
     return gulp.src('app/**/*.html')
         .pipe(usemin({
-            styles:[minifycss(),rev()],
-            js: [uglify(),rev()]
+            styles: ['lessToCss'],
+            js: [uglify(), rev()]
         }))
         .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('imagemin', function() {
+gulp.task('imagemin', function () {
     return del(['dist/images']), gulp.src('app/images/**/*')
-        .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+        .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true})))
         .pipe(gulp.dest('dist/images'))
-        .pipe(notify({ message: 'Images task complete' }));
+        .pipe(notify({message: 'Images task complete'}));
 });
 
-gulp.task('copyfonts', function() {
+gulp.task('copyfonts', function () {
     gulp.src('app/fonts/**/*.{ttf,woff,eof,svg,eot}*')
         .pipe(gulp.dest('./dist/fonts'));
     gulp.src('dist/fonts/**/*.{ttf,woff,eof,svg,eot}*')
         .pipe(gulp.dest('./dist/fonts'));
 });
 
-gulp.task('minify-css', ['less'], function() {
-    return gulp.src(['app/styles/tmp/*.css'])
-        .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest('dist/styles/tmp'));
+gulp.task('copyCss', function () {
+    gulp.src('app/styles/**/*.css')
+        .pipe(gulp.dest('./dist/styles/'));
 });
 
-gulp.task('concat',['minify-css', 'usemin'], function() {
-    return gulp.src(['./dist/styles/**/*.css'])
-        .pipe(concat('styles.css'))
-        .pipe(gulp.dest('./dist/styles'));
+gulp.task('copyLibs', function () {
+    gulp.src('app/libs/**/*')
+        .pipe(gulp.dest('./dist/libs/'));
 });
 
 gulp.task('compress', function (cb) {
@@ -84,15 +82,21 @@ gulp.task('compress', function (cb) {
     );
 });
 
-gulp.task('copyJson', function() {
+gulp.task('copyJson', function () {
     gulp.src('app/**/*.json')
         .pipe(gulp.dest('./dist'));
 });
 
 
-gulp.task('watch', ['browser-sync'], function() {
+gulp.task('watch', ['browser-sync'], function () {
     // Watch .js, .css, .html, .less files
-    gulp.watch('{app/js/**/*.js, app/libs/**/*.js, app/styles/**/*.css, app/styles/**/*.less, app/**/*.html}', ['clean-tmp-css']);
+    gulp.watch('{app/js/**/*.js, app/**/*.html}', ['usemin']);
+    //Watch .css files
+    gulp.watch('app/styles/**/*.min.css', ['copyCss']);
+    //Watch .less files
+    gulp.watch('app/styles/**/*.less', ['lessToCss']);
+    //Watch libs.js files
+    gulp.watch('app/libs/**/*.js', ['copyLibs']);
     // Watch server.js
     gulp.watch('app/*.js', ['compress']);
     // Watch image files
@@ -104,14 +108,16 @@ gulp.task('watch', ['browser-sync'], function() {
 
 });
 
+
 gulp.task('browser-sync', ['default'], function () {
     var files = [
         'app/**/*.html',
         'app/styles/**/*.css',
+        'app/styles/**/*.less',
         'app/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
         'app/**/*.js',
-        'app/**/*/json',
-        'dist/**/*'
+        'app/**/*/json'
+        // 'dist/**/*'
     ];
 
     browserSync.init(files, {
@@ -126,6 +132,6 @@ gulp.task('browser-sync', ['default'], function () {
 
 
 // Default task
-gulp.task('default', ['clean-dist'], function() {
-    gulp.start( 'imagemin','copyfonts', 'compress', 'copyJson', 'clean-tmp-css');
+gulp.task('default', ['clean-dist'], function () {
+    gulp.start('usemin', 'imagemin', 'copyfonts', 'copyJson', 'copyLibs',/*'lessToCss',*/ 'copyCss', 'compress');
 });

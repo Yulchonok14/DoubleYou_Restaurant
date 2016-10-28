@@ -91,7 +91,7 @@ $(function () {
             if(checkBoxes[i].type === 'checkbox' && checkBoxes[i].checked === true){
                 dishObj = {};
                 target = checkBoxes[i].parentNode.parentNode.parentNode;
-                child = checkBoxes[i].parentNode.parentNode.nextSibling.nextSibling.childNodes;
+                child = checkBoxes[i].parentNode.parentNode.nextSibling.nextSibling.childNodes; //access to quantity dish input (Menu page)
                 quant = child[4].value;
                 for(var j = 0, lenOr = madenOrderAr.length; j < lenOr; j++){
                     if(Number(madenOrderAr[j].idCourse) === Number(target.getAttribute('data-id-course')) && Number(madenOrderAr[j].dish.id) === Number(target.getAttribute('data-id'))){
@@ -161,21 +161,22 @@ $(function () {
             parent = target.parentNode.parentNode.parentNode,
             dishId = parent.getAttribute('data-id'),
             courseId = parent.getAttribute('data-id-course'),
-            price, priceElem, oldPrice, totalPrice, newPrice, discTPrice, discElem, discount,
-            child = target.parentNode.parentNode.nextSibling.nextSibling.childNodes,
+            price, oldPrice, totalPrice, newPrice, discTPrice, discElem, discount, priceElem,
+            priceElems = target.parentNode.parentNode.nextSibling.nextSibling.childNodes, //access to $price of each portion size (Basket page)
             orderAr = JSON.parse(localStorage.getItem('Order'));
         for(var i = 0, len = orderAr.length; i < len; i++){
             if(Number(orderAr[i].idCourse) === Number(courseId) && orderAr[i].dish.id === Number(dishId)){
                 if (id === 'pint') {
                     price = orderAr[i].dish.sPrice || orderAr[i].dish.lPrice;
-                    priceElem = child[1];
+                    oldPrice = orderAr[i].dish.sPortionQuant * price;
+                    priceElem = priceElems[1];
                     orderAr[i].dish.sPortionQuant = quant;
                 } else if (id === 'quart') {
                     price = orderAr[i].dish.lPrice;
-                    priceElem = child[3];
+                    oldPrice =  orderAr[i].dish.lPortionQuant * price;
+                    priceElem = priceElems[3];
                     orderAr[i].dish.lPortionQuant = quant;
                 }
-                oldPrice = Number(priceElem.innerHTML.substr(1));
                 newPrice = (price * quant);
                 priceElem.innerHTML = '$' + newPrice.toFixed(2);
                 localStorage.setItem('Order', JSON.stringify(orderAr));
@@ -443,19 +444,11 @@ $(function () {
                 mainDiv.innerHTML = buildBasketViewHtml(result[0], result[1], result[2], result[3], orderAr);
                 var section = document.getElementById('section');
                 var orderBut = document.getElementById('orderButton');
-                var email = document.getElementById('eMail');
-                var time = document.getElementById('timeDelivery');
                 var modalForm = document.getElementById('modalForm');
-                var sendBut = document.getElementById('sendButton');
                 modalForm.addEventListener('invalid', invalidInput, true); //event for deleting default hint while error\
-                email.addEventListener('click', changeEmailEvent, false);
-                email.addEventListener('input', changeEmailEvent, false);
-                time.addEventListener('click', changeTimeEvent, false);
-                time.addEventListener('input', changeTimeEvent, false);
                 section.addEventListener('click', clickCloseEvent, false);
                 section.addEventListener('change', changeQuantEvent, false);
                 orderBut.addEventListener('click', clickOrderEvent, false);
-                sendBut.addEventListener('click', clickSendEvent, false);
                 var quantInputs = mainDiv.getElementsByClassName('quantity');
                 for(var i = 0, len = quantInputs.length; i < len; i++){
                     if(quantInputs[i].getAttribute('data-visibility') === 'hidden'){
@@ -466,112 +459,198 @@ $(function () {
         }
     };
 
-    function changeEmailEvent() {
-        $('#eMailDiv').removeClass('submitted');
-        $('#eMail').removeClass('submitted');
-    }
-
-    function changeTimeEvent() {
-        $('#timeDiv').removeClass('submitted');
-        $('#timeDelivery').removeClass('submitted');
-    }
-
-    function invalidInput(e) {
-        e.target.setCustomValidity(' ');
-    }
-
-    function clickSendEvent() {
-    }
 
     function clickOrderEvent() {
-        $('body').addClass('modal-open');
-        $('#eMail').val('');
-        $('#timeDelivery').val('');
-        $('.ui-timepicker-list').css('display', 'block');
+        var modalForm;
+        if ('ontransitionstart' in window) {
+            $('#modalForm').one('transitionstart', addModalForm);
+                modalForm = $('#modalForm');
+            modalForm.addClass('appear');
+        } else {
+            $('#modalForm').css('display', 'block');
+                modalForm = $('#modalForm');
+            setTimeout(function () {
+                modalForm.addClass('appear');
+            }, 300);
+        }
+        var modalClose = $('#modalClose'),
+            overlay = $('#overlay'),
+            body = $('body'),
+            eMail = $('#eMail'),
+            timeDelivery = $('#timeDelivery'),
+            addressD = $('#addressD'),
+            timepickerList = $('.ui-timepicker-list'),
+            eMailDiv = $('#eMailDiv'),
+            eMailError = $('#eMailError'),
+            date = new Date(),
+            hours = date.getHours(),
+            minutes = date.getMinutes();
 
-        $('#timeDelivery').timepicker({
-            'minTime': '2:00pm',
+        body.addClass('modal-open');
+        eMail.val('');
+        timeDelivery.val('');
+        addressD.val('');
+        minutes = minutes > 30 ? 30 : '00';
+
+        var strTime = hours-11+':'+minutes+'pm';
+
+        timeDelivery.timepicker({
+            'minTime': strTime,
             'maxTime': '24:00pm'
         });
-        $('#overlay').fadeIn(400, function(){
-            $('#modalForm')
-                .css('display', 'block')
-                .animate({opacity: 1, top: '50%'}, 200);
+        timeDelivery.click(function () {
+            timepickerList.css('display', 'block');
         });
-        $('#modalClose, #overlay').click( function(){
-            $('#modalForm')
-                .animate({opacity: 0, top: '45%'}, 200,
-                    function(){
-                        $(this).css('display', 'none');
-                        $('#overlay').fadeOut(400);
-                    }
-                );
-            $("body").removeClass("modal-open");
-            $('#eMailDiv').removeClass('submitted');
-            $('#eMail').removeClass('submitted');
-            $('#timeDiv').removeClass('submitted');
-            $('#timeDelivery').removeClass('submitted');
-            $('.ui-timepicker-list').css('display', 'none');
-        });
+
+        overlay.fadeIn(400);
+
+        modalClose.click(closeModalForm);
+        overlay.click(closeModalForm);
         $('#sendButton').click(function () {
-            var email = $('#eMail').val(),
-                time = $('#timeDelivery').val(),
-                wishes = $('#wishes').val();
+            var email = eMail.val(),
+                time = timeDelivery.val(),
+                address = addressD.val(),
+                wish = $('#wishes').val();
             if(email.length === 0){
-                $('#eMailDiv').addClass('submitted');
-                $('#eMail').addClass('submitted');
+                eMailDiv.addClass('submitted');
+                eMailDiv.attr('data-email', 'Please, enter e-mail');
+                eMailError.addClass('submitted');
+                eMailError.text('Please, enter e-mail');
+                eMail.addClass('submitted');
+                eMail.one('input', changeEmailEvent);
             }
             if(time.length === 0){
                 $('#timeDiv').addClass('submitted');
-                $('#timeDelivery').addClass('submitted');
+                timeDelivery.addClass('submitted');
+                $('#timeError').addClass('submitted');
+                timeDelivery.one('change', changeTimeEvent);
+            }
+            if(address.length === 0){
+                $('#addressDiv').addClass('submitted');
+                addressD.addClass('submitted');
+                $('#addressError').addClass('submitted');
+                addressD.one('input', changeAddressEvent);
             }
             var display = $('.ui-timepicker-wrapper').css('display');
             if(display === 'block') {
                 return;
             }
-            if(email.length !== 0 && time.length !== 0) {
-                $('#eMailDiv').removeClass('submitted');
-                $('#eMail').removeClass('submitted');
-                $('#timeDiv').removeClass('submitted');
-                $('#timeDelivery').removeClass('submitted');
-                $('#modalForm')
-                    .animate({opacity: 0, top: '45%'}, 200,
-                        function () {
-                            $(this).css('display', 'none');
-                            $('#overlay').fadeOut(400);
-                        }
-                    );
-                $('body').removeClass('modal-open');
-                $('.ui-timepicker-list').css('display', 'none');
-                var madenOrderAr = JSON.parse(localStorage.getItem('Order'));
-                var sendOrderAr = [];
+            if(email.length !== 0 && !validateEmail(email)){
+                eMailDiv.addClass('submitted');
+                eMailError.addClass('submitted');
+                eMail.addClass('submitted');
+                eMailDiv.attr('data-email', 'Wrong e-mail');
+                eMailError.text('Wrong e-mail');
+                eMail.one('input', changeEmailEvent);
+            }
+            if(email.length !== 0 && validateEmail(email) && time.length !== 0 && address.length !== 0) {
+                removeClassSubmitted();
+                modalForm.one('transitionend', removeModalForm);
+                overlay.fadeOut(400);
+
+                body.removeClass('modal-open');
+                timepickerList.css('display', 'none');
+                var madenOrderAr = JSON.parse(localStorage.getItem('Order')),
+                    sendOrderAr = [],
+                    result,
+                    dish;
                 for(var i = 0, len = madenOrderAr.length; i < len; i++){
-                    var dish = {};
+                    dish = {};
                     dish.idCourse = madenOrderAr[i].idCourse;
                     dish.idDish = madenOrderAr[i].dish.id;
                     dish.lPostionQuant = madenOrderAr[i].dish.lPortionQuant;
                     dish.sPortionQuant = madenOrderAr[i].dish.sPortionQuant;
                     sendOrderAr.push(dish);
                 }
-                var result = {'dishes': sendOrderAr, 'email': email, 'time': time, 'wishes': wishes};
+                result = {'dishes': sendOrderAr, 'email': email, 'time': time, 'address': address, 'wishes': wish};
                 Promise.all([
-                    basketHtml.sendOrder(JSON.stringify(result)),
-                    sendOrder(email)
+                    //basketHtml.sendOrder(JSON.stringify(result)),
+                    sendWithSocket(JSON.stringify(createSocketFormat('processNewOrder', result)))
                 ]).then(function (result) {
                     console.log(result[0]);
-                    // console.log(result[1]);
+                    //console.log(result[1]);
                 });
             }
         });
     }
 
-    function sendOrder(data) {
+    function createSocketFormat(method, params) {
+        return {
+            'jsonrpc': '2.0',
+            'method': method,
+            'params': JSON.stringify(params),
+            'id': Math.random()
+        }
+    }
+
+    function changeEmailEvent() {
+        $('#eMailDiv').removeClass('submitted');
+        $('#eMail').removeClass('submitted');
+        $('#eMailError').removeClass('submitted');
+    }
+
+    function changeTimeEvent() {
+        $('#timeDiv').removeClass('submitted');
+        $('#timeDelivery').removeClass('submitted');
+        $('#timeError').removeClass('submitted');
+    }
+
+    function changeAddressEvent() {
+        $('#addressDiv').removeClass('submitted');
+        $('#addressD').removeClass('submitted');
+        $('#addressError').removeClass('submitted');
+    }
+
+    function invalidInput(e) {
+        e.target.setCustomValidity(' ');
+    }
+
+    function closeModalForm() {
+        var modalForm = $('#modalForm');
+        modalForm.removeClass('appear');
+        modalForm.one('transitionend', removeModalForm);
+        $('#overlay').fadeOut(400);
+
+        $('body').removeClass('modal-open');
+        removeClassSubmitted();
+        $('.ui-timepicker-list').css('display', 'none');
+    }
+
+    function removeClassSubmitted() {
+        $('#eMailDiv').removeClass('submitted');
+        $('#eMail').removeClass('submitted');
+        $('#timeDiv').removeClass('submitted');
+        $('#timeDelivery').removeClass('submitted');
+        $('#addressD').removeClass('submitted');
+        $('#addressDiv').removeClass('submitted');
+        $('#eMailError').removeClass('submitted');
+        $('#timeError').removeClass('submitted');
+        $('#addressError').removeClass('submitted');
+        $('#modalForm').removeClass('appear');
+    }
+
+    function validateEmail(email){
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    function removeModalForm() {
+        $('#modalForm').css('display', 'none');
+        $('#sendButton').unbind('click');
+        $('#modalClose').unbind('click');
+        $('#overlay').unbind('click');
+    }
+
+    function addModalForm() {
+        $('#modalForm').css('display', 'block');
+    }
+
+    function sendWithSocket(data) {
         return new Promise(function (resolve, reject) {
             restaurantAPI.sendSocketRequest(
                 data,
                 function (status) {
                     resolve(status);
-                    console.log(status);
                 });
         });
     }

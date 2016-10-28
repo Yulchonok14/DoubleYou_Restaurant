@@ -129,12 +129,10 @@ body.modal-open {
   box-shadow: 0 1px 5px 1px @backLightColor;
 }
 #menu-tile {
-  background: url('../images/menu-tile.jpg') no-repeat;
-  background-position: center;
+  background: url('../images/menu-tile.jpg') no-repeat center;
 }
 #specials-tile {
-  background: url('../images/specials-tile.jpg') no-repeat;
-  background-position: center;
+  background: url('../images/specials-tile.jpg') no-repeat center;
 }
 #menu-tile span, #specials-tile span, #map-tile span {
   position: absolute;
@@ -208,6 +206,7 @@ body.modal-open {
   margin-left: 5px;
   text-align: center;
   outline: none;
+  cursor:none;
 }
 .menu-item-photo {
   position: relative;
@@ -315,7 +314,6 @@ h3.menu-item-title {
   opacity: 0;
   transition: opacity 0.3s linear;
   background: url(../images/gtk_close.ico) no-repeat transparent;
-  //width: 10px;
   height: 30px;
   border: none;
   background-size: cover;
@@ -348,10 +346,15 @@ h3.menu-item-title {
 .tPrice{
   text-align: right;
 }
+.footerPrice{
+  margin-bottom: 20px;
+}
+hr{
+  width: 50%;
+}
 #modalForm {
   color: @lightGrayColor;
-  height: 30%;
-  min-height: 350px;
+  min-height: 400px;
   border-radius: 5px;
   border: 3px solid @darkCherryColor;
   background: @cherryColor;
@@ -359,20 +362,24 @@ h3.menu-item-title {
   top: 45%;
   left: 50%;
   margin-top: -150px;
-  //margin-left: -300px;
   display: none;
   opacity: 0;
   z-index: 3;
   padding: 0 10px;
-  input, textarea{
+  input, textarea {
     color:@blackColor;
     outline: none;
-    margin-bottom: 15px;
+    margin-top: 15px;
   }
-  #timeDelivery{
-    color : transparent;
+  #timeDelivery {
+    color: transparent;
     text-shadow : 0 0 0 @blackColor;
   }
+  transition: opacity 0.3s linear , top 0.3s linear;
+}
+#modalForm.appear{
+  opacity: 1;
+  top: 50%;
 }
 #wishes{
   height: 80px;
@@ -382,17 +389,17 @@ h3.menu-item-title {
   background-color: @lightGrayColor;
 }
 #overlay {
-  z-index:2;
-  position:fixed;
-  background-color:@blackColor;
-  opacity:0.5;
-  filter:alpha(opacity=80);
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  cursor:pointer;
-  display:none;
+  z-index: 2;
+  position: fixed;
+  background-color: @blackColor;
+  opacity: 0.5;
+  filter: alpha(opacity=80);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  display: none;
 }
 ul.ui-timepicker-list{
   background-color: @cherryColor;
@@ -403,16 +410,18 @@ ul.ui-timepicker-list{
   padding: 10px 15px;
   cursor: pointer;
   overflow: auto;
-  height: 200px;
+  min-height: 40px;
 }
 #sendButton {
   display: block;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 150px;
   font-size: 24px;
   color:@cherryColor;
   border-color: @darkCherryColor;
   background-color: @lightGrayColor;
+  margin-bottom:15px;
 }
 #sendButton:hover {
   box-shadow: 0 1px 5px 1px @backLightColor;
@@ -428,13 +437,13 @@ ul.ui-timepicker-list{
   text-align: center;
   padding: 5px;
   border-radius: 6px;
-  margin-left: -30px;
+  margin-left: 90%;
   border: 1px solid;
   font-size: 16px;
 }
 #eMailDiv.submitted:after {
   .hint;
-  content:"Please, enter e-mail";
+  content:attr(data-email);
   width: 160px;
   margin-top: 70px;
 }
@@ -444,14 +453,20 @@ ul.ui-timepicker-list{
   width: 210px;
   margin-top: 120px;
 }
-#eMail.submitted:invalid, #timeDelivery.submitted:invalid{
+#addressDiv.submitted:after {
+  .hint;
+  content:"Please, enter address";
+  width: 170px;
+  margin-top: 170px;
+}
+#eMail.submitted:invalid, #timeDelivery.submitted:invalid, #addressD.submitted:invalid{
   border: 2px solid @darkRedColor;
 }
-.footerPrice{
-  margin-bottom: 20px;
+.errorMessage {
+  display: none;
 }
-hr{
-  width: 50%;
+.errorMessage.submitted {
+  display: none;
 }
 /* END BUSKET PAGE */
 
@@ -644,12 +659,18 @@ hr{
     margin-left: -40%;
   }
   #eMailDiv.submitted:after {
-    margin-left: -90px;
-    margin-top: 35px;
+    display: none;
   }
   #timeDiv.submitted:after {
-    margin-left: -140px;
-    margin-top: 140px;
+    display: none;
+  }
+  #addressDiv.submitted:after {
+    display: none;
+  }
+  .errorMessage.submitted {
+    display: block;
+    color: @darkRedColor;
+    font-size: 14px;
   }
   /* END BUSKET PAGE */
 }
@@ -692,15 +713,31 @@ hr{
 
   /* BUSKET PAGE */
   #modalForm {
-    min-height: 420px;
+    min-height: 500px;
   }
   #eMailDiv.submitted:after {
-    margin-left: -130px;
-    margin-top: 75px;
+    display: block;
+    margin-left: 45%;
+    margin-top: 120px;
   }
   #timeDiv.submitted:after {
-    margin-left: -180px;
+    display: block;
+    margin-left:25%;
     margin-top: 200px;
+  }
+  #addressDiv.submitted:after {
+    display: block;
+    margin-left:41%;
+    margin-top: 285px;
+  }
+  #eMail.submitted:invalid, #timeDelivery.submitted:invalid, #addressD.submitted:invalid{
+    margin-bottom: 15px;
+  }
+  .errorMessage {
+    display: none;
+  }
+  .errorMessage.submitted {
+    display: none;
   }
   .delete{
     padding-right:0;

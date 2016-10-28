@@ -2,325 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbfb8a4b-e596-47e9-9b6b-ac05facbca8c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jayson.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/DoubleYouView_1200.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/DoubleYouView_768.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/DoubleYouView_992.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/ajax-loader.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/delete.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/gtk_close.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/logo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu-tile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/A/A.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/A/A1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/A/A10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/A/A11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/A/A2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/A/A3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/A/A4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/A/A5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/A/A6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/A/A7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/A/A8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/A/A9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/B/B9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C18.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C19.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/C/C9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CM/CM.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CM/CM1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CM/CM2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CM/CM3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CM/CM4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CM/CM5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CSR/CSR.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CSR/CSR1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CSR/CSR2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CSR/CSR3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CSR/CSR4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CU/CU.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CU/CU21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CU/CU22.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/CU/CU23.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D18.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/D/D9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/DK/DK.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/DK/DK1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/DK/DK2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/DK/Dk3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/DS/DS.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/DS/DS1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/DS/DS2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/F/F9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/FR/FR.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/FR/FR1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/FR/FR2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/FR/FR3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/FR/FR4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/FR/FR5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/FY/FY.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/FY/FY1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/FY/FY2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/FY/FY3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/FY/FY4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/FY/FY5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L18.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L19.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L20.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L22.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L23.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L24.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L26.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L27.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L28.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/L/L9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NF/NF.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NF/NF10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NF/NF11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NF/NF12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NF/NF13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NL/NL.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NL/NL1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NL/NL2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NL/NL3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NS/NS.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NS/NS1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NS/NS2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NS/NS3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/NS/NS4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/PF/PF.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/PF/PF1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/PF/PF2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/PF/PF3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/PF/PF4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/PF/PF5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SO/SO.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SO/SO1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SO/SO2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SO/SO3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SO/SO4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SO/SO5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SO/SO6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SO/SO7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SP/SP.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SP/SP1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SP/SP2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SP/SP3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SP/SP4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SP/SP5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SP/SP6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SP/SP7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SP/SP8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR18.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR19.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR20.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR22.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR23.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR24.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR25.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR26.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR27.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR28.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR29.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR30.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR31.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR32.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR33.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR34.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR35.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR36.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR37.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR38.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR39.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR40.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR41.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR42.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR43.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SR/SR9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/SS/SS9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/T/T.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/T/T1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/T/T2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/T/T3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/T/T4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/V/V.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/V/V1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/V/V2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/V/V3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/V/V4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/V/V5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/V/V6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/V/V7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menu/VG/VG9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/restaurant-logo_large.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/restaurant-logo_medium.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/restaurant-logo_small.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/specials-tile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/basketHtml.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/course.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/courseHtml.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/dish.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/dishHtml.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/restaurantAPI.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/jquery-2.1.4.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/jquery.timepicker.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/less.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snippets/basket-empty-snippet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snippets/basket-footer-snippet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snippets/basket-snippet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snippets/basket-title-snippet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snippets/course-empty-snippet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snippets/course-snippet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snippets/dish-empty-snippet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snippets/dish-snippet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snippets/dish-title-snippet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snippets/history-snippet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snippets/home-snippet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/jquery.timepicker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/styles.less" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/orders.json" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/scripts/main-45f67c964e.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jayson.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/package.json" afterPath="$PROJECT_DIR$/node_modules/express/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node/package.json" afterPath="$PROJECT_DIR$/node_modules/node/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/restaurantAPI.js" afterPath="$PROJECT_DIR$/app/js/restaurantAPI.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/script.js" afterPath="$PROJECT_DIR$/app/js/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server.js" afterPath="$PROJECT_DIR$/app/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/snippets/basket-footer-snippet.html" afterPath="$PROJECT_DIR$/app/snippets/basket-footer-snippet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/styles.less" afterPath="$PROJECT_DIR$/app/styles/styles.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="$PROJECT_DIR$/dist/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/server.js" afterPath="$PROJECT_DIR$/dist/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/snippets/basket-footer-snippet.html" afterPath="$PROJECT_DIR$/dist/snippets/basket-footer-snippet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/styles/styles.css" afterPath="$PROJECT_DIR$/dist/styles/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/menu.json" afterPath="$PROJECT_DIR$/app/menu.json" />
     </list>
     <ignored path="module5-solution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -346,8 +44,28 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+            <state relative-caret-position="312">
+              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orders.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/orders.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="486" selection-start-line="0" selection-start-column="486" selection-end-line="0" selection-end-column="486" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/menu.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -356,38 +74,28 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="86" column="14" selection-start-line="86" selection-start-column="14" selection-end-line="86" selection-end-column="14" />
+            <state relative-caret-position="306">
+              <caret line="92" column="37" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gulpfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="92" column="17" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="35" />
+            <state relative-caret-position="327">
+              <caret line="114" column="30" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dishHtml.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/dishHtml.js">
+      <file leaf-file-name="dish-snippet.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/snippets/dish-snippet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="restaurantAPI.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/restaurantAPI.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+            <state relative-caret-position="119">
+              <caret line="7" column="160" selection-start-line="7" selection-start-column="152" selection-end-line="7" selection-end-column="160" />
               <folding />
             </state>
           </provider>
@@ -396,38 +104,38 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+            <state relative-caret-position="120">
+              <caret line="564" column="114" selection-start-line="564" selection-start-column="25" selection-end-line="564" selection-end-column="114" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="course.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/course.js">
+      <file leaf-file-name="styles.less" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/styles/styles.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="390">
+              <caret line="417" column="21" selection-start-line="416" selection-start-column="20" selection-end-line="417" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="courseHtml.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/courseHtml.js">
+      <file leaf-file-name="basket-footer-snippet.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/snippets/basket-footer-snippet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+            <state relative-caret-position="17">
+              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dish.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/dish.js">
+      <file leaf-file-name="restaurantAPI.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/js/restaurantAPI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="220">
+              <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -450,9 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/snippets/item-snipet.html" />
-        <option value="$PROJECT_DIR$/snippets/item-title-snippet.html" />
-        <option value="$PROJECT_DIR$/js/file.js" />
         <option value="$PROJECT_DIR$/js/server.js" />
         <option value="$PROJECT_DIR$/js/ajax-utils.js" />
         <option value="$PROJECT_DIR$/js/menuItem.js.less" />
@@ -489,18 +194,21 @@
         <option value="$PROJECT_DIR$/js/restaurantAPI.js" />
         <option value="$PROJECT_DIR$/js/gulpfile.js" />
         <option value="$PROJECT_DIR$/app/js/jayson.js" />
-        <option value="$PROJECT_DIR$/app/js/restaurantAPI.js" />
-        <option value="$PROJECT_DIR$/app/server.js" />
         <option value="$PROJECT_DIR$/app/js/basketHtml.js" />
         <option value="$PROJECT_DIR$/app/js/courseHtml.js" />
         <option value="$PROJECT_DIR$/app/js/dishHtml.js" />
-        <option value="$PROJECT_DIR$/app/styles/styles.less" />
-        <option value="$PROJECT_DIR$/app/js/script.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/dist/index.html" />
         <option value="$PROJECT_DIR$/dist/styles/styles.css" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/app/js/restaurantAPI.js" />
+        <option value="$PROJECT_DIR$/app/snippets/basket-footer-snippet.html" />
+        <option value="$PROJECT_DIR$/app/snippets/dish-snippet.html" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/app/js/script.js" />
+        <option value="$PROJECT_DIR$/app/server.js" />
+        <option value="$PROJECT_DIR$/app/orders.json" />
+        <option value="$PROJECT_DIR$/app/styles/styles.less" />
       </list>
     </option>
   </component>
@@ -508,14 +216,72 @@
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+    <gulpfiles>
+      <GulpfileState>
+        <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
+        <tasks>
+          <GulpTaskState>
+            <task-name>lessToCss</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>jshint</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>clean-dist</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="jshint" />
+            </dependencies>
+            <task-name>usemin</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>imagemin</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>copyfonts</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>copyCss</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>copyLibs</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>compress</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>copyJson</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="browser-sync" />
+            </dependencies>
+            <task-name>watch</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="default" />
+            </dependencies>
+            <task-name>browser-sync</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="clean-dist" />
+            </dependencies>
+            <task-name>default</task-name>
+          </GulpTaskState>
+        </tasks>
+      </GulpfileState>
+    </gulpfiles>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
-    <option name="y" value="18" />
+    <option name="x" value="59" />
+    <option name="y" value="55" />
     <option name="width" value="1630" />
     <option name="height" value="1000" />
   </component>
@@ -544,8 +310,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -583,7 +349,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/js" />
+    <property name="last_opened_file_path" value="D:/ToDoList" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -608,6 +374,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="settings.editor.selected.configurable" value="IntelliLang.Configuration" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="js.buildTools.gulp.gulp_package_dir" value="D:\DoubleYou_Restaurant\node_modules\gulp" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -704,11 +471,12 @@
       <workItem from="1475827064961" duration="107251000" />
       <workItem from="1476358225788" duration="44585000" />
       <workItem from="1476691126985" duration="170208000" />
+      <workItem from="1477412212530" duration="72363000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="322090000" />
+    <option name="totallyTimeSpent" value="394453000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -720,24 +488,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="18" width="1630" height="1000" extended-state="0" />
+    <frame x="59" y="55" width="1630" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19095477" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19095477" sideWeight="0.09276438" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19095477" sideWeight="0.9072356" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2675894" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34140715" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21383648" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34140715" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21356784" sideWeight="0.5884413" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39907727" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37831604" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -775,253 +544,41 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="11" />
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/categoryItem.js" />
-    <entry file="file://$PROJECT_DIR$/js/dishes.js" />
-    <entry file="file://$PROJECT_DIR$/js/courses.js" />
-    <entry file="file://$PROJECT_DIR$/js/coursesHtml.js" />
-    <entry file="file://$PROJECT_DIR$/snippets/menu-snippet.html" />
-    <entry file="file://$PROJECT_DIR$/js/dishHtml.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/basket-title-snippet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/history-snippet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/home-snippet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/dish-title-snippet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/dish-snippet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="126" selection-start-line="7" selection-start-column="126" selection-end-line="7" selection-end-column="126" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/course-empty-snippet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/course-snippet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="62" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/dish-empty-snippet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/basket-empty-snippet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/jquery.timepicker.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/moment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68595">
-          <caret line="4039" column="4" selection-start-line="4039" selection-start-column="4" selection-end-line="4039" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/js/dishHtml.js" />
+    <entry file="file://$PROJECT_DIR$/snippets/basket-title-snippet.html" />
+    <entry file="file://$PROJECT_DIR$/snippets/history-snippet.html" />
+    <entry file="file://$PROJECT_DIR$/snippets/home-snippet.html" />
+    <entry file="file://$PROJECT_DIR$/snippets/dish-title-snippet.html" />
+    <entry file="file://$PROJECT_DIR$/snippets/dish-snippet.html" />
+    <entry file="file://$PROJECT_DIR$/snippets/course-empty-snippet.html" />
+    <entry file="file://$PROJECT_DIR$/snippets/course-snippet.html" />
+    <entry file="file://$PROJECT_DIR$/snippets/dish-empty-snippet.html" />
+    <entry file="file://$PROJECT_DIR$/snippets/basket-empty-snippet.html" />
+    <entry file="file://$PROJECT_DIR$/libs/jquery.timepicker.min.js" />
+    <entry file="file://$PROJECT_DIR$/js/moment.js" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/w_2cde9995.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/basket-footer-snippet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/basket-snippet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/dish.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/courseHtml.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/styles.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="543" column="3" selection-start-line="543" selection-start-column="3" selection-end-line="543" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/course.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/basketHtml.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="63" column="34" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="98" column="41" selection-start-line="98" selection-start-column="41" selection-end-line="98" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="581" column="31" selection-start-line="581" selection-start-column="31" selection-end-line="581" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="82" column="3" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/restaurantAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/menu.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="0" column="1999" selection-start-line="0" selection-start-column="1999" selection-end-line="0" selection-end-column="1999" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/styles.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="201" column="21" selection-start-line="201" selection-start-column="21" selection-end-line="201" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/basketHtml.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="71" column="11" selection-start-line="71" selection-start-column="11" selection-end-line="71" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/snippets/basket-footer-snippet.html" />
+    <entry file="file://$PROJECT_DIR$/snippets/basket-snippet.html" />
+    <entry file="file://$PROJECT_DIR$/js/dish.js" />
+    <entry file="file://$PROJECT_DIR$/js/courseHtml.js" />
+    <entry file="file://$PROJECT_DIR$/styles/styles.less" />
+    <entry file="file://$PROJECT_DIR$/js/course.js" />
+    <entry file="file://$PROJECT_DIR$/js/basketHtml.js" />
+    <entry file="file://$PROJECT_DIR$/index.html" />
+    <entry file="file://$PROJECT_DIR$/server.js" />
+    <entry file="file://$PROJECT_DIR$/js/script.js" />
+    <entry file="file://$PROJECT_DIR$/js/gulpfile.js" />
+    <entry file="file://$PROJECT_DIR$/js/restaurantAPI.js" />
+    <entry file="file://$PROJECT_DIR$/app/js/bootstrap.js" />
     <entry file="file://$PROJECT_DIR$/app/js/course.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1032,24 +589,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/courseHtml.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
+        <state relative-caret-position="476">
           <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/dish.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/dishHtml.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1058,50 +599,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/restaurantAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/styles/less/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10343">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/styles/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1462">
-          <caret line="5" column="12913" selection-start-line="5" selection-start-column="12913" selection-end-line="5" selection-end-column="13415" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/styles/styles1.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13158">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/styles/less/styles.css" />
+    <entry file="file://$PROJECT_DIR$/dist/styles/styles1.css" />
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
@@ -1114,7 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1126,26 +627,145 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/server.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        <state relative-caret-position="459">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <marker date="1477412346318" expanded="true" signature="0:1144" ph="{&quot;name&quot;: &quot;doubleyou_restaurant&quot;...}" />
+            <marker date="1477412346318" expanded="true" signature="141:204" ph="{&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;...}" />
+            <marker date="1477412346318" expanded="true" signature="222:319" ph="{&quot;type&quot;: &quot;git&quot;...}" />
+            <marker date="1477412346318" expanded="true" signature="367:444" ph="{&quot;url&quot;: &quot;https://github.com/Yulchonok14/DoubleYou_Restaurant/issues&quot;...}" />
+            <marker date="1477412346318" expanded="true" signature="540:627" ph="{&quot;body-parser&quot;: &quot;^1.15.2&quot;...}" />
+            <marker date="1477412346318" expanded="true" signature="650:1142" ph="{&quot;browser-sync&quot;: &quot;^2.17.5&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/basketHtml.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
+    <entry file="file://$PROJECT_DIR$/app/js/dishHtml.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="86" column="14" selection-start-line="86" selection-start-column="14" selection-end-line="86" selection-end-column="14" />
+        <state relative-caret-position="510">
+          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/snippets/basket-snippet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/dish.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/snippets/basket-footer-snippet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/styles/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="8871" selection-start-line="0" selection-start-column="8871" selection-end-line="0" selection-end-column="8871" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/snippets/course-snippet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/snippets/dish-snippet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="160" selection-start-line="7" selection-start-column="152" selection-end-line="7" selection-end-column="160" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/restaurantAPI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="92" column="17" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="35" />
+        <state relative-caret-position="327">
+          <caret line="114" column="30" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="92" column="37" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="564" column="114" selection-start-line="564" selection-start-column="25" selection-end-line="564" selection-end-column="114" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/orders.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="486" selection-start-line="0" selection-start-column="486" selection-end-line="0" selection-end-column="486" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/menu.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/styles/styles.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="417" column="21" selection-start-line="416" selection-start-column="20" selection-end-line="417" selection-end-column="21" />
           <folding />
         </state>
       </provider>

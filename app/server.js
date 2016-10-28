@@ -4,18 +4,10 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     path = require('path'),
     server = app.listen(80),
-    io = require('socket.io')(server);
+    io = require('socket.io')(server),
+    fs = require('fs'),
+    filePath = __dirname + '/orders.json';
 
-// var jayson = require(__dirname + '/js/jayson.js');
-//
-// // create a server
-// jayson.server({
-//     getEmail: function(args, callback) {
-//         callback(null, args);
-//     }
-// });
-
-// server.http().listen(80);
 app.use(express.static(__dirname, + '/js'));
 app.use(express.static(__dirname, + '/styles'));
 app.use(express.static(__dirname, + '/libs'));
@@ -25,6 +17,8 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
 
 var requestDiscount = function (req, res, next) {
     var day = new Date().getDate();
@@ -36,6 +30,42 @@ var requestDiscount = function (req, res, next) {
         req.requestDiscount = 1;
     }
     next();
+};
+
+
+global.processNewOrder = function processNewOrder(order){
+    console.log('ku');
+    fs.readFile(filePath, 'binary', function (err, data) {
+        if (err) {
+            return console.error(err);
+        }
+        var dataArr = JSON.parse(data),
+            orderObj = JSON.parse(order),
+            dishesArr;
+        for(var i = 0, len = dataArr.length; i < len; i++){
+            if(dataArr[i].email == orderObj.email) {
+                dishesArr = dataArr[i].dishes;
+                for(var j = 0, leng = orderObj.dishes.length; j < leng; j++) {
+                    dishesArr.push(orderObj.dishes[j]);
+                }
+            } else {
+
+            }
+        }
+        fs.writeFile(filePath, JSON.stringify(dataArr), function(err) {
+            if (err) {
+                return console.error(err);
+            }
+        });
+    });
+};
+
+var parseMessage = function (message) {
+    var reply = JSON.parse(message);
+    var method = reply.method;
+    var params = JSON.parse(reply.params);
+    global[method](reply.params);
+    //var dishes = params.dishes;
 };
 
 app.use(requestDiscount);
@@ -58,9 +88,6 @@ app.post('/order', function(req, res){
     });
 });
 
-// подключенные клиенты
-var clients = {};
-
 io.on('connection', function(socket) {
     console.log('a user connected');
     socket.on('disconnect', function(){
@@ -68,20 +95,16 @@ io.on('connection', function(socket) {
     });
 
     var id = Math.random();
-    clients[id] = socket;
     console.log("новое соединение " + id);
 
     socket.on('message', function(message) {
         console.log('получено сообщение ' + message);
-
-        for (var key in clients) {
-            clients[key].send(message);
-        }
+        parseMessage(message);
+        socket.send('Received');
     });
 
     socket.on('close', function() {
         console.log('соединение закрыто ' + id);
-        delete clients[id];
     });
 
 });

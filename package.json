@@ -37,6 +37,7 @@
     "gulp-rev": "^7.1.2",
     "gulp-uglify": "^2.0.0",
     "gulp-usemin": "^0.3.24",
+    "gulp-watch": "^4.3.10",
     "jshint-stylish": "^2.2.1"
   }
 }

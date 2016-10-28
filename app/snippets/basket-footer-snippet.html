@@ -11,21 +11,36 @@
     </div>
     <input type="button" id="orderButton" value="Order" data-toggle="modal" data-target="#additInfoModal">
 
-    <form id="modalForm">
+    <form id="modalForm" novalidate>
         <input type="button" id="modalClose" class="closeModal col-lg-1 col-lg-offset-11 col-md-1 col-md-offset-11 col-sm-1 col-sm-offset-11 col-xs-2 col-xs-offset-10 pull-right">
         <div id="eMailDiv">
             <label for="eMail" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xxs-12">E-mail: </label>
-            <input id="eMail" class="inputForm col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xxs-12" required>
+            <input id="eMail" type="email" class="inputForm col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xxs-12" required>
+        </div>
+        <div>
+            <div id="eMailError" class="errorMessage col-xs-6 col-xs-offset-6"></div>
         </div>
         <div id="timeDiv">
             <label for="timeDelivery" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xxs-12">Delivery time: </label>
             <input id="timeDelivery" class="inputForm col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xxs-12" required>
         </div>
         <div>
+            <span id="timeError" class="errorMessage col-xs-6 col-xs-offset-6">Please, enter time</span>
+        </div>
+        <div id="addressDiv">
+            <label for="addressD" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xxs-12">Address: </label>
+            <input id="addressD" class="inputForm col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xxs-12" required>
+        </div>
+        <div>
+            <span id="addressError" class="errorMessage col-xs-6 col-xs-offset-6">Please, enter address</span>
+        </div>
+        <div>
             <label for="wishes" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">Wishes:</label>
             <textarea id="wishes" class="inputForm col-lg-12 col-md-12 col-sm-12 col-xs-12"></textarea>
         </div>
-        <input type="submit" id="sendButton" value="Send">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <input type="submit" id="sendButton" value="Send">
+        </div>
     </form>
     <div id='overlay'></div><!-- Пoдлoжкa -->
 </div>
