@@ -474,6 +474,28 @@ ul.ui-timepicker-list{
 #history {
   height: 484px;
 }
+#labelEmail {
+  font-size: 18px;
+  color: @milkyGrayColor;
+}
+#historyEmail {
+  background-color: @lightGrayColor;
+  color: @blackColor;
+}
+#historyButton {
+  width: 150px;
+  font-size: 24px;
+  color:@cherryColor;
+  border-color: @darkCherryColor;
+  background-color: @lightGrayColor;
+}
+#historyButton:hover {
+  box-shadow: 0 1px 5px 1px @backLightColor;
+  cursor: pointer;
+}
+#historyButton:active {
+  background-color: @blueColor;
+}
 /* END HISTORY PAGE */
 
 /********** Large devices only **********/
@@ -739,9 +761,18 @@ ul.ui-timepicker-list{
   .errorMessage.submitted {
     display: none;
   }
-  .delete{
+  .delete {
     padding-right:0;
     padding-left: 0;
   }
   /* END BUSKET PAGE */
+
+  /* HISTORY PAGE */
+  #search {
+    text-align: center;
+  }
+  #labelEmail {
+    margin-bottom: 15px;
+  }
+  /* END HISTORY PAGE */
 }

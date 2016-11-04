@@ -1,4 +1,4 @@
-<div class="basket-item-tile row col-xxs-12" data-id="{{id}}" data-id-course="{{idCourse}}">
+<article class="basket-item-tile row col-xxs-12" data-id="{{id}}" data-id-course="{{idCourse}}">
     <div id="image" class="col-lg-2 col-lg-offset-0 col-md-2 col-md-offset-0 col-sm-2 col-sm-offset-0 col-xs-3 col-xs-offset-1 col-xxs-12">
         <div class="basket-item-image"><img class="img-responsive" src="images/menu/{{catShortName}}/{{shortName}}.jpg" alt="Dish"></div>
     </div>
@@ -11,12 +11,11 @@
         <div><label class="portion" for="pint">{{smallPortionName}}</label><input id="pint" class="quantity" type="number" value="{{smallPortionQuantity}}" min="0" max="99"></div>
         <div><label class="portion" for="quart">{{largePortionName}}</label><input id="quart" class="quantity" type="number" value="{{largePortionQuantity}}" min="0" max="99" data-visibility="{{vis}}"></div>
     </div>
-    <div id="totals" class="text-center col-lg-2 col-md-1 col-sm-1 col-xs-3">
+    <div id="totals" class="text-center col-lg-1 col-md-1 col-sm-1 col-xs-3">
         <div class="basket-item-total" id="pintPrice">{{smallPortionTotal}}</div>
         <div class="basket-item-total" id="quartPrice">{{largePortionTotal}}</div>
     </div>
-
-</div>
+</article>
 <hr>
 
 

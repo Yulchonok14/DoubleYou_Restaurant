@@ -6,7 +6,8 @@ var express = require('express'),
     server = app.listen(80),
     io = require('socket.io')(server),
     fs = require('fs'),
-    filePath = __dirname + '/orders.json';
+    filePathOrder = __dirname + '/orders.json',
+    filePathHistory = __dirname + '/history.json';
 
 app.use(express.static(__dirname, + '/js'));
 app.use(express.static(__dirname, + '/styles'));
@@ -34,8 +35,7 @@ var requestDiscount = function (req, res, next) {
 
 
 global.processNewOrder = function processNewOrder(order){
-    console.log('ku');
-    fs.readFile(filePath, 'binary', function (err, data) {
+    fs.readFile(filePathOrder, 'binary', function (err, data) {
         if (err) {
             return console.error(err);
         }
@@ -43,16 +43,23 @@ global.processNewOrder = function processNewOrder(order){
             orderObj = JSON.parse(order),
             dishesArr;
         for(var i = 0, len = dataArr.length; i < len; i++){
-            if(dataArr[i].email == orderObj.email) {
+            if(dataArr[i].email === orderObj.email) {
                 dishesArr = dataArr[i].dishes;
                 for(var j = 0, leng = orderObj.dishes.length; j < leng; j++) {
                     dishesArr.push(orderObj.dishes[j]);
                 }
+                break;
             } else {
-
+                dataArr.push(orderObj);
+                addToHistory(orderObj, 'Delivered');
             }
         }
-        fs.writeFile(filePath, JSON.stringify(dataArr), function(err) {
+        if(dataArr.length === 0){
+            dataArr.push(orderObj);
+            addToHistory(orderObj, 'Delivered');
+        }
+
+        fs.writeFile(filePathOrder, JSON.stringify(dataArr), function(err) {
             if (err) {
                 return console.error(err);
             }
@@ -60,22 +67,72 @@ global.processNewOrder = function processNewOrder(order){
     });
 };
 
+var addToHistory = function(order, status){
+    fs.readFile(filePathHistory, 'binary', function (err, data) {
+        if (err) {
+            return console.error(err);
+        }
+        var dataArr = JSON.parse(data),
+            dishesArr,
+            historyObj = {},
+            date = new Date();
+        historyObj.dishes = order.dishes;
+        historyObj.date = date.toDateString();
+        historyObj.status = status;
+        historyObj.email = order.email;
+        historyObj.price = order.totalPrice;
+        dataArr.push(historyObj);
+        fs.writeFile(filePathHistory, JSON.stringify(dataArr), function(err) {
+            if (err) {
+                return console.error(err);
+            }
+        });
+    });
+};
+
+var getAllHistory = function (res, email) {
+    return new Promise(function (resolve, reject) {
+        fs.readFile(filePathHistory, 'binary', function (err, data) {
+            if (err) {
+                return console.error(err);
+            }
+            var dataArr = JSON.parse(data),
+                sendArr = [];
+            for (var i = 0, len = dataArr.length; i < len; i++) {
+                if (dataArr[i].email === email) {
+                    sendArr.push(dataArr[i]);
+                }
+            }
+            res.send(JSON.stringify(sendArr))
+        });
+    })
+};
+
 var parseMessage = function (message) {
     var reply = JSON.parse(message);
     var method = reply.method;
     var params = JSON.parse(reply.params);
     global[method](reply.params);
-    //var dishes = params.dishes;
 };
-
-app.use(requestDiscount);
 
 app.get('/', function(req, res){
     res.sendFile('index.html');
 });
 
-app.get('/discount', function(req, res){
+app.get('/discount', requestDiscount, function(req, res){
     res.send(req.requestDiscount + '');
+});
+
+app.post('/history', function(req, res){
+    var bodyStr = '';
+    req.on('data',function(chunk){
+        bodyStr += chunk.toString();
+    });
+    req.on('end',function(){
+        getAllHistory(res, bodyStr).then(
+            res.send.bind(res)
+        );
+    });
 });
 
 app.post('/order', function(req, res){

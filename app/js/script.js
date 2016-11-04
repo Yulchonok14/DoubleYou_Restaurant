@@ -6,7 +6,9 @@ $(function () {
         basketSnippet = 'snippets/basket-snippet.html',
         historySnippet = 'snippets/history-snippet.html',
         containerNav = document.getElementById('container'),
-        mainDiv = document.getElementById('main-content');
+        mainDiv = document.getElementById('main-content'),
+        discount = 0,
+        email = '';
 
     function Menu() {}
 
@@ -20,16 +22,27 @@ $(function () {
         restaurantAPI = new RestaurantAPI(),
         courseHtml = new CourseHtml(),
         dishHtml = new DishHtml(),
-        basketHtml = new BasketHtml();
+        basketHtml = new BasketHtml(),
+        historyHtml = new HistoryHtml();
 
     containerNav.addEventListener('click', clickNavEvent, false);
 
     function clickCategoryEvent(e) {
         var target = e.target,
             sName = target.parentNode.getAttribute('data-short-name'),
+            index;
+        if (typeof menu.findIndex === 'function'){
             index = menu.findIndex(function (item) {
                 return item.sName === sName;
             });
+        } else {
+            for (var j = 0, len = menu.length; j < len; j++) {
+                if (menu[j].sName === sName) {
+                    index = j;
+                    break;
+                }
+            }
+        }
         if (index >= 0) {
             var course = menu[index];
             displayDishes(course.id);
@@ -73,7 +86,7 @@ $(function () {
                 break;
             }
             case 'historyRef': {
-                changeContent(historySnippet);
+                displayHistory();
                 break;
             }
         }
@@ -120,8 +133,8 @@ $(function () {
         var target = e.target,
             totalPriceElem, discTPriceElem, discountElem, totalPrice, substrPrice, discount;
         if(target.classList.contains('delete')){
-            var line = target.nextSibling.nextSibling,
-                id = target.getAttribute('data-id'),
+            var line = target.parentNode.nextSibling.nextSibling,
+                id = target.parentNode.getAttribute('data-id'),
                 orderAr = JSON.parse(localStorage.getItem('Order'));
             target = e.target.parentNode;
             for(var i = 0, len = orderAr.length; i < len; i++){
@@ -250,10 +263,20 @@ $(function () {
     };
 
     var getDishes = function (courseId) {
+        var index;
         if(menu.length !== 0){
-            var index = menu.findIndex(function (course) {
-                return course.id === courseId;
-            });
+            if (typeof menu.findIndex === 'function'){
+                index = menu.findIndex(function (course) {
+                    return course.id === courseId;
+                });
+            } else {
+                for (var j = 0, len = menu.length; j < len; j++) {
+                    if (menu[j].id === courseId) {
+                        index = j;
+                        break;
+                    }
+                }
+            }
             if(index >= 0) {
                 return menu[index].items;
             }
@@ -388,10 +411,20 @@ $(function () {
     };
 
     var getCourseById = function (courseId) {
+        var index = 0;
         if(menu.length !== 0){
-            var index = menu.findIndex(function (course) {
-                return course.id === courseId;
-            });
+            if (typeof menu.findIndex === 'function'){
+                index = menu.findIndex(function (course) {
+                    return course.id === courseId;
+                });
+            } else {
+                for (var j = 0, len = menu.length; j < len; j++) {
+                    if (menu[j].id === courseId) {
+                        index = j;
+                        break;
+                    }
+                }
+            }
             if(index >= 0) {
                 return menu[index];
             }
@@ -429,7 +462,7 @@ $(function () {
 
     var displayBasket = function () {
         var orderAr = JSON.parse(localStorage.getItem('Order'));
-        if(orderAr.length === 0){
+        if(!orderAr){
             basketHtml.getBasketEmptyHTML().then(function (result) {
                 mainDiv.innerHTML = result;
             });
@@ -442,6 +475,7 @@ $(function () {
                 getCourses('menu.json')
             ]).then(function (result) {
                 mainDiv.innerHTML = buildBasketViewHtml(result[0], result[1], result[2], result[3], orderAr);
+                discount = result[3];
                 var section = document.getElementById('section');
                 var orderBut = document.getElementById('orderButton');
                 var modalForm = document.getElementById('modalForm');
@@ -459,6 +493,48 @@ $(function () {
         }
     };
 
+    var displayHistory = function () {
+        historyHtml.getHistorySearchHTML().then(function (result) {
+            mainDiv.innerHTML = result;
+            var searchButton = document.getElementById('historyButton');
+            searchButton.addEventListener('click', clickHistoryButton, true);
+        });
+        if(email !== ''){
+            clickHistoryButton();
+        }
+        /*historyHtml.getHistoryEmptyHTML().then(function (result) {
+            mainDiv.innerHTML = result;
+        });
+        Promise.all([
+            historyHtml.getHistorySearchHTML(),
+            historyHtml.getHistoryHeaderHTML(),
+            historyHtml.getHistoryHTML(),
+            historyHtml.getHistoryFooterHTML()
+        ]).then(function (result) {
+            mainDiv.innerHTML = buildBasketViewHtml(result[0], result[1], result[2], result[3], orderAr);
+            var searchButton = document.getElementById('historyButton');
+            searchButton.addEventListener('click', clickHistoryButton, true);
+        });*/
+    };
+
+    function clickHistoryButton(e) {
+        var eMail;
+        if(e) {
+            var target = e.target;
+            eMail = target.previousElementSibling.value;
+            if (eMail !== '') {
+                email = eMail;
+            }
+        }
+        else {
+            eMail = document.getElementById('historyEmail');
+            eMail.textContent = email;
+        }
+        historyHtml.sendEmail(email).then(function (result) {
+            //mainDiv.innerHTML = buildBasketViewHtml(result[0], result[1], result[2], result[3], orderAr);
+            console.log(result);
+        });
+    }
 
     function clickOrderEvent() {
         var modalForm;
@@ -484,12 +560,14 @@ $(function () {
             eMailError = $('#eMailError'),
             date = new Date(),
             hours = date.getHours(),
-            minutes = date.getMinutes();
+            minutes = date.getMinutes(),
+            wishes = $('#wishes');
 
         body.addClass('modal-open');
         eMail.val('');
         timeDelivery.val('');
         addressD.val('');
+        wishes.val('');
         minutes = minutes > 30 ? 30 : '00';
 
         var strTime = hours-11+':'+minutes+'pm';
@@ -510,7 +588,7 @@ $(function () {
             var email = eMail.val(),
                 time = timeDelivery.val(),
                 address = addressD.val(),
-                wish = $('#wishes').val();
+                wish = wishes.val();
             if(email.length === 0){
                 eMailDiv.addClass('submitted');
                 eMailDiv.attr('data-email', 'Please, enter e-mail');
@@ -562,7 +640,7 @@ $(function () {
                     dish.sPortionQuant = madenOrderAr[i].dish.sPortionQuant;
                     sendOrderAr.push(dish);
                 }
-                result = {'dishes': sendOrderAr, 'email': email, 'time': time, 'address': address, 'wishes': wish};
+                result = {'dishes': sendOrderAr, 'email': email, 'time': time, 'address': address, 'wishes': wish, 'totalPrice': totalPrice(sendOrderAr)};
                 Promise.all([
                     //basketHtml.sendOrder(JSON.stringify(result)),
                     sendWithSocket(JSON.stringify(createSocketFormat('processNewOrder', result)))
@@ -572,6 +650,17 @@ $(function () {
                 });
             }
         });
+    }
+
+    function totalPrice(dishesArr) {
+        var dish, dishSmall, dishLarge, resultPrice = 0;
+        for(var i = 0, len = dishesArr.length; i < len; i++){
+            dish = getDish(dishesArr[i].idCourse, dishesArr[i].idDish);
+            dishSmall = dish.sPrice !== null ? dish.sPrice * dishesArr[i].sPortionQuant : dish.lPrice * dishesArr[i].sPortionQuant;
+            dishLarge =  dish.lPrice !== null ? dish.lPrice * dishesArr[i].lPostionQuant : 0;
+            resultPrice += dishSmall + dishLarge;
+        }
+        return (resultPrice * 1 - Number(discount) / 1).toFixed(2);
     }
 
     function createSocketFormat(method, params) {
