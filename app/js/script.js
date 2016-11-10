@@ -3,8 +3,6 @@ $(function () {
     'use strict';
 
     var homeSnippet = 'snippets/home-snippet.html',
-        basketSnippet = 'snippets/basket-snippet.html',
-        historySnippet = 'snippets/history-snippet.html',
         containerNav = document.getElementById('container'),
         mainDiv = document.getElementById('main-content'),
         discount = 0,
@@ -78,7 +76,7 @@ $(function () {
                 break;
             }
             case 'menuRef': {
-                displayCourses('menu.json');
+                displayCourses();
                 break;
             }
             case 'basketRef': {
@@ -99,7 +97,7 @@ $(function () {
     function clickBasketButtonEvent(e) {
         var checkBoxes = document.getElementsByTagName('input'),
             dishObj, target, child, quant, dish, exist = false,
-            madenOrderAr = JSON.parse(localStorage.getItem('Order'));
+            madenOrderAr = JSON.parse(localStorage.getItem('Order'))||[];
         for(var i = 0, len = checkBoxes.length; i < len; i++){
             if(checkBoxes[i].type === 'checkbox' && checkBoxes[i].checked === true){
                 dishObj = {};
@@ -230,21 +228,23 @@ $(function () {
     function closeMenu() {
         var screenWidth = window.innerWidth;
         if (screenWidth < 768) {
-            $('#collapsable-nav').collapse('hide');
+            setTimeout(function () {
+                $('#collapsable-nav').collapse('hide');
+            }, 20);
         }
     }
     $('#navbarToggle').blur(function (event) {
-        setTimeout(closeMenu, 10);
+        closeMenu();
     });
 
 
-    var getCourses = function (url) {
+    var getCourses = function () {
         if(menu.length !== 0){
             return menu;
         } else {
             return new Promise(function(resolve, reject) {
                 restaurantAPI.sendGetRequest(
-                    url,
+                    '/menu',
                     function (json) {
                         var courses = createCourseObjs(JSON.parse(json));
                         resolve(courses);
@@ -344,8 +344,8 @@ $(function () {
         return finalHtml;
     };
 
-    var buildBasketViewHtml = function (basketHtml, basketTitleHtml, basketFooterHtml, discount, orderAr) {
-        var finalHtml = basketTitleHtml;
+    var buildBasketViewHtml = function (basketHtml, basketFooterHtml, discount, orderAr) {
+        var finalHtml = '<h2 class="text-center">Your Order</h2>';
         finalHtml += "<section id='section' class='row'>";
         var course, dish, totalSPrice, totalLPrice, orderPrice = 0;
         for (var i = 0, len = orderAr.length; i < len; i++) {
@@ -367,12 +367,12 @@ $(function () {
                 totalSPrice = dish.sPortionQuant * (dish.sPrice === null ? dish.lPrice : dish.sPrice);
                 totalLPrice = dish.lPortionQuant * (dish.lPrice === null ? 0 : dish.lPrice);
                 orderPrice += totalSPrice + totalLPrice;
-                html = insertProperty(html, 'smallPortionTotal', '$' + totalSPrice.toFixed(2));
+                html = insertItemPrice(html, 'smallPortionTotal', totalSPrice);
                 if (dish.sPrice === null) {
                     html = insertProperty(html, 'vis', 'hidden');
                     html = insertProperty(html, 'largePortionTotal', '');
                 } else {
-                    html = insertProperty(html, 'largePortionTotal', '$' + totalLPrice.toFixed(2));
+                    html = insertItemPrice(html, 'largePortionTotal', totalLPrice);
                 }
                 finalHtml += html;
             }
@@ -385,6 +385,161 @@ $(function () {
             basketFooterHtml = insertProperty(basketFooterHtml, 'discOrderPrice', (orderPrice * (1 - discount / 100)).toFixed(2));
             finalHtml += basketFooterHtml;
         }
+        return finalHtml;
+    };
+
+    var buildHistoryTableViewHtml = function (historyAr, historyHtml, historyHeaderHtml, historyFooterHtml, historySearchHtml) {
+        var finalHtml = historySearchHtml;
+        finalHtml += "<h2 class='text-center'>Your History</h2>";
+        finalHtml += "<section id='section' class='row'><table id='tableHistory' class='table-responsive'>";
+        var dishes, date, status, price, totalSPrice, totalLPrice, orderPrice = 0, discount;
+        var table = document.createElement('table'),
+            tr = document.createElement('tr'),
+            th = document.createElement('th'),
+            td = document.createElement('td'),
+            trHead = tr.cloneNode(true),
+            thDate = th.cloneNode(true),
+            thOrder = th.cloneNode(true),
+            thStatus = th.cloneNode(true),
+            div = document.createElement('div');
+        thDate.textContent = 'Date';
+        thOrder.textContent = 'Order';
+        thStatus.textContent = 'Status/Price';
+        trHead.appendChild(thDate);
+        trHead.appendChild(thOrder);
+        trHead.appendChild(thStatus);
+        table.id = 'tableHistory';
+        table.appendChild(trHead);
+        for (var i = 0, len = historyAr.length; i < len; i++) {
+            var trBody = tr.cloneNode(true),
+                tdDate = td.cloneNode(true),
+                tdOrder = td.cloneNode(true),
+                html = '';
+            tdDate.textContent = historyAr[i].date;
+            trBody.appendChild(tdDate);
+            dishes = historyAr[i].dishes;
+            date = historyAr[i].date;
+            status = historyAr[i].status;
+            price = Number(historyAr[i].price);
+            discount = Number(historyAr[i].discount);
+            for(var j = 0, leng = dishes.length; j < leng; j++){
+                var dish = getDish(Number(dishes[j].idCourse), Number(dishes[j].idDish)),
+                    course = getCourseById(Number(dishes[j].idCourse));
+                html += historyHtml;
+                html = insertProperty(html, 'id', dish.id);
+                html = insertProperty(html, 'idCourse', course.id);
+                html = insertProperty(html, 'name', dish.name);
+                html = insertProperty(html, 'shortName', dish.sName);
+                html = insertItemPrice(html, 'priceSmall', dish.sPrice);
+                html = insertItemPortionName(html, 'smallPortionNamePrice', dish.sPortionName);
+                html = insertItemPortionName(html, 'largePortionNamePrice', dish.lPortionName);
+                html = insertItemPrice(html, 'priceLarge', dish.lPrice);
+                html = insertProperty(html, 'catShortName', course.sName);
+                if(dishes[j].lPortionQuant === 0){
+                    html = insertProperty(html, 'largePortionQuantity', '');
+                    html = insertItemPortionName(html, 'largePortionName', '');
+                } else {
+                    html = insertProperty(html, 'largePortionQuantity', dishes[j].lPortionQuant);
+                    html = insertItemPortionName(html, 'largePortionName', dish.lPortionName);
+                }
+                totalSPrice = dishes[j].sPortionQuant * (dish.sPrice === null ? dish.lPrice : dish.sPrice);
+                totalLPrice = dishes[j].lPortionQuant * (dish.lPrice === null ? 0 : dish.lPrice);
+                orderPrice += totalSPrice + totalLPrice;
+                html = insertItemPrice(html, 'smallPortionTotal', totalSPrice);
+                if (dish.sPrice === null) {
+                    html = insertProperty(html, 'largePortionTotal', '');
+                } else {
+                    html = insertItemPrice(html, 'largePortionTotal', totalLPrice);
+                }
+                if (dishes[j].sPortionQuant === 0){
+                    html = insertProperty(html, 'smallPortionQuantity', '');
+                    html = insertItemPortionName(html, 'smallPortionName', '');
+                } else {
+                    html = insertProperty(html, 'smallPortionQuantity', dishes[j].sPortionQuant);
+                    html = insertItemPortionName(html, 'smallPortionName', dish.sPortionName);
+                }
+            }
+            tdOrder.innerHTML = html;
+            trBody.appendChild(tdOrder);
+            var tdStatus = td.cloneNode(true),
+                divStatus = div.cloneNode(true),
+                divPrice = div.cloneNode(true),
+                divDiscount = div.cloneNode(true),
+                divWrapper = div.cloneNode(true);
+            divStatus.textContent = historyAr[i].status;
+            tdStatus.appendChild(divStatus);
+            divDiscount.textContent = -discount + '%';
+            divPrice.textContent = '$' + price;
+            divWrapper.appendChild(divDiscount);
+            divWrapper.appendChild(divPrice);
+            divWrapper.id = 'divWrapper';
+            tdStatus.appendChild(divWrapper);
+            trBody.appendChild(tdStatus);
+            table.appendChild(trBody);
+            html = table.innerHTML;
+        }
+        finalHtml += html;
+        finalHtml += "</table></section>";
+        return finalHtml;
+    };
+
+    var buildHistoryViewHtml = function (historyAr, historyHtml, historyHeaderHtml, historyFooterHtml, historySearchHtml) {
+        var finalHtml = historySearchHtml;
+        finalHtml += "<h2 class='text-center'>Your History</h2>";
+        finalHtml += "<section id='section' class='row'>";
+        var dishes, date, status, price, totalSPrice, totalLPrice, orderPrice = 0, html = "", discount;
+        for (var i = 0, len = historyAr.length; i < len; i++) {
+            dishes = historyAr[i].dishes;
+            date = historyAr[i].date;
+            status = historyAr[i].status;
+            price = Number(historyAr[i].price);
+            discount = Number(historyAr[i].discount);
+            html += historyHeaderHtml;
+            html = insertProperty(html, 'date', date);
+            html = insertProperty(html, 'status', status);
+            for(var j = 0, leng = dishes.length; j < leng; j++){
+                var dish = getDish(Number(dishes[j].idCourse), Number(dishes[j].idDish)),
+                    course = getCourseById(Number(dishes[j].idCourse));
+                html += historyHtml;
+                html = insertProperty(html, 'id', dish.id);
+                html = insertProperty(html, 'idCourse', course.id);
+                html = insertProperty(html, 'name', dish.name);
+                html = insertProperty(html, 'shortName', dish.sName);
+                html = insertItemPrice(html, 'priceSmall', dish.sPrice);
+                html = insertItemPortionName(html, 'smallPortionNamePrice', dish.sPortionName);
+                html = insertItemPortionName(html, 'largePortionNamePrice', dish.lPortionName);
+                html = insertItemPrice(html, 'priceLarge', dish.lPrice);
+                html = insertProperty(html, 'catShortName', course.sName);
+                if(dishes[j].lPortionQuant === 0){
+                    html = insertProperty(html, 'largePortionQuantity', '');
+                    html = insertItemPortionName(html, 'largePortionName', '');
+                } else {
+                    html = insertProperty(html, 'largePortionQuantity', dishes[j].lPortionQuant);
+                    html = insertItemPortionName(html, 'largePortionName', dish.lPortionName);
+                }
+                totalSPrice = dishes[j].sPortionQuant * (dish.sPrice === null ? dish.lPrice : dish.sPrice);
+                totalLPrice = dishes[j].lPortionQuant * (dish.lPrice === null ? 0 : dish.lPrice);
+                orderPrice += totalSPrice + totalLPrice;
+                html = insertItemPrice(html, 'smallPortionTotal', totalSPrice);
+                if (dish.sPrice === null) {
+                    html = insertProperty(html, 'largePortionTotal', '');
+                } else {
+                    html = insertItemPrice(html, 'largePortionTotal', totalLPrice);
+                }
+                if (dishes[j].sPortionQuant === 0){
+                    html = insertProperty(html, 'smallPortionQuantity', '');
+                    html = insertItemPortionName(html, 'smallPortionName', '');
+                } else {
+                    html = insertProperty(html, 'smallPortionQuantity', dishes[j].sPortionQuant);
+                    html = insertItemPortionName(html, 'smallPortionName', dish.sPortionName);
+                }
+            }
+            html += historyFooterHtml;
+            html = insertProperty(html, 'discount', -discount + '%');
+            html = insertItemPrice(html, 'totalPrice', price);
+        }
+        finalHtml += html;
+        finalHtml += "</section>";
         return finalHtml;
     };
 
@@ -462,20 +617,19 @@ $(function () {
 
     var displayBasket = function () {
         var orderAr = JSON.parse(localStorage.getItem('Order'));
-        if(!orderAr){
+        if(!orderAr || orderAr.length === 0){
             basketHtml.getBasketEmptyHTML().then(function (result) {
                 mainDiv.innerHTML = result;
             });
         } else {
             Promise.all([
                 basketHtml.getBasketHTML(),
-                basketHtml.getBasketTitleHTML(),
                 basketHtml.getBasketFooterHTML(),
                 basketHtml.getDiscount(),
-                getCourses('menu.json')
+                getCourses()
             ]).then(function (result) {
-                mainDiv.innerHTML = buildBasketViewHtml(result[0], result[1], result[2], result[3], orderAr);
-                discount = result[3];
+                mainDiv.innerHTML = buildBasketViewHtml(result[0], result[1], result[2], orderAr);
+                discount = result[2];
                 var section = document.getElementById('section');
                 var orderBut = document.getElementById('orderButton');
                 var modalForm = document.getElementById('modalForm');
@@ -495,26 +649,16 @@ $(function () {
 
     var displayHistory = function () {
         historyHtml.getHistorySearchHTML().then(function (result) {
-            mainDiv.innerHTML = result;
+            var html = "<div id='history'>";
+            html += result;
+            html += "</div>";
+            mainDiv.innerHTML = html;
             var searchButton = document.getElementById('historyButton');
             searchButton.addEventListener('click', clickHistoryButton, true);
         });
         if(email !== ''){
             clickHistoryButton();
         }
-        /*historyHtml.getHistoryEmptyHTML().then(function (result) {
-            mainDiv.innerHTML = result;
-        });
-        Promise.all([
-            historyHtml.getHistorySearchHTML(),
-            historyHtml.getHistoryHeaderHTML(),
-            historyHtml.getHistoryHTML(),
-            historyHtml.getHistoryFooterHTML()
-        ]).then(function (result) {
-            mainDiv.innerHTML = buildBasketViewHtml(result[0], result[1], result[2], result[3], orderAr);
-            var searchButton = document.getElementById('historyButton');
-            searchButton.addEventListener('click', clickHistoryButton, true);
-        });*/
     };
 
     function clickHistoryButton(e) {
@@ -526,13 +670,46 @@ $(function () {
                 email = eMail;
             }
         }
-        else {
-            eMail = document.getElementById('historyEmail');
-            eMail.textContent = email;
-        }
         historyHtml.sendEmail(email).then(function (result) {
-            //mainDiv.innerHTML = buildBasketViewHtml(result[0], result[1], result[2], result[3], orderAr);
-            console.log(result);
+            if(JSON.parse(result).length !== 0) {
+                var width = window.innerWidth || document.body.clientWidth;
+                Promise.all([
+                    historyHtml.getHistoryHTML(),
+                    historyHtml.getHistoryHeaderHTML(),
+                    historyHtml.getHistoryFooterHTML(),
+                    historyHtml.getHistorySearchHTML(),
+                    getCourses()
+                ]).then(function (resultHtml) {
+                    if(width > 767){
+                        mainDiv.innerHTML = buildHistoryTableViewHtml(JSON.parse(result), resultHtml[0], resultHtml[1], resultHtml[2], resultHtml[3]);
+                    } else {
+                        mainDiv.innerHTML = buildHistoryViewHtml(JSON.parse(result), resultHtml[0], resultHtml[1], resultHtml[2], resultHtml[3]);
+                    }
+                    document.getElementById('historyEmail').value = email;
+                    console.log(document.getElementById('pint').textContent);
+                    var quantArr = document.getElementsByClassName('quantityHist');
+                    for (var i = 0, len = quantArr.length; i < len; i++) {
+                        if (quantArr[i].textContent == '') {
+                            quantArr[i].parentNode.style.display = 'none';
+                        }
+                    }
+                    var searchButton = document.getElementById('historyButton');
+                    searchButton.addEventListener('click', clickHistoryButton, true);
+                })
+            } else {
+                Promise.all([
+                    historyHtml.getHistorySearchHTML(),
+                    historyHtml.getHistoryEmptyHTML()])
+                .then(function (result) {
+                    var html = "<div id='history'>";
+                    html += result[0];
+                    html += result[1];
+                    html += "</div>";
+                    mainDiv.innerHTML = html;
+                    var searchButton = document.getElementById('historyButton');
+                    searchButton.addEventListener('click', clickHistoryButton, true);
+                });
+            }
         });
     }
 
@@ -636,18 +813,20 @@ $(function () {
                     dish = {};
                     dish.idCourse = madenOrderAr[i].idCourse;
                     dish.idDish = madenOrderAr[i].dish.id;
-                    dish.lPostionQuant = madenOrderAr[i].dish.lPortionQuant;
+                    dish.lPortionQuant = madenOrderAr[i].dish.lPortionQuant;
                     dish.sPortionQuant = madenOrderAr[i].dish.sPortionQuant;
                     sendOrderAr.push(dish);
                 }
-                result = {'dishes': sendOrderAr, 'email': email, 'time': time, 'address': address, 'wishes': wish, 'totalPrice': totalPrice(sendOrderAr)};
-                Promise.all([
-                    //basketHtml.sendOrder(JSON.stringify(result)),
-                    sendWithSocket(JSON.stringify(createSocketFormat('processNewOrder', result)))
-                ]).then(function (result) {
-                    console.log(result[0]);
-                    //console.log(result[1]);
-                });
+                result = {'dishes': sendOrderAr, 'email': email, 'time': time, 'address': address, 'wishes': wish, 'price': totalPrice(sendOrderAr), 'discount': discount};
+
+                sendWithSocket(JSON.stringify(createSocketFormat('processNewOrder', result)))
+                    .then(function (result) {
+                        console.log(result);
+                        localStorage.setItem('Order', '[]');
+                        basketHtml.getBasketEmptyHTML().then(function (result) {
+                            mainDiv.innerHTML = result;
+                        });
+                    });
             }
         });
     }
@@ -657,10 +836,10 @@ $(function () {
         for(var i = 0, len = dishesArr.length; i < len; i++){
             dish = getDish(dishesArr[i].idCourse, dishesArr[i].idDish);
             dishSmall = dish.sPrice !== null ? dish.sPrice * dishesArr[i].sPortionQuant : dish.lPrice * dishesArr[i].sPortionQuant;
-            dishLarge =  dish.lPrice !== null ? dish.lPrice * dishesArr[i].lPostionQuant : 0;
+            dishLarge =  dish.lPrice !== null ? dish.lPrice * dishesArr[i].lPortionQuant : 0;
             resultPrice += dishSmall + dishLarge;
         }
-        return (resultPrice * 1 - Number(discount) / 1).toFixed(2);
+        return (resultPrice * (1 - Number(discount) / 100)).toFixed(2);
     }
 
     function createSocketFormat(method, params) {
@@ -668,8 +847,16 @@ $(function () {
             'jsonrpc': '2.0',
             'method': method,
             'params': JSON.stringify(params),
-            'id': Math.random()
+            'id': createGuid()
         }
+    }
+
+    function createGuid()
+    {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        });
     }
 
     function changeEmailEvent() {

@@ -4,7 +4,6 @@ $(function () {
 
     var dEmptyHtml = "snippets/basket-empty-snippet.html",
         dHtml = "snippets/basket-snippet.html",
-        dTitleHtml = "snippets/basket-title-snippet.html",
         dFooterHtml = "snippets/basket-footer-snippet.html";
 
     function BasketHtml() {}
@@ -27,16 +26,6 @@ $(function () {
                 dHtml,
                 function (basketHtml) {
                     resolve(basketHtml);
-                });
-        });
-    };
-
-    BasketHtml.prototype.getBasketTitleHTML = function () {
-        return new Promise(function (resolve, reject) {
-            restaurantAPI.sendGetRequest(
-                dTitleHtml,
-                function (basketTitleHtml) {
-                    resolve(basketTitleHtml);
                 });
         });
     };

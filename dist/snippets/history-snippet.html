@@ -1,3 +1,19 @@
-<div id="history" class="text-center">
-    <h1>History is empty</h1>
-</div>
+<article class="basket-item-tile row col-xxs-12" data-id="{{id}}" data-id-course="{{idCourse}}">
+    <div id="image" class="col-lg-2 col-lg-offset-2 col-md-3 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-3 col-xs-offset-1 col-xxs-12">
+        <div class="history-item-image"><img class="img-responsive" src="images/menu/{{catShortName}}/{{shortName}}.jpg" alt="Dish"></div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6">
+        <h3 class="history-item-title text-center">{{name}}</h3>
+        <div class="basket-item-price text-center col-lg-6 col-md-6 col-sm-6">{{priceSmall}}<span> {{smallPortionNamePrice}}</span> </div>
+        <div class="basket-item-price text-center col-lg-6 col-md-6 col-sm-6">{{priceLarge}} <span>{{largePortionNamePrice}}</span></div>
+    </div>
+    <div id="quantPicker" class="col-lg-2 col-lg-offset-0 col-md-2 col-md-offset-0 col-sm-2 col-sm-offset-0 col-xs-7 col-xs-offset-0">
+        <div><span class="portion" for="pint">{{smallPortionName}}</span><span id="pint" class="quantityHist">{{smallPortionQuantity}}</span></div>
+        <div><span class="portion" for="quart">{{largePortionName}}</span><span id="quart" class="quantityHist">{{largePortionQuantity}}</span></div>
+    </div>
+    <div id="totals" class="text-center col-lg-1 col-md-1 col-sm-1 col-xs-2">
+        <div class="history-item-total" id="pintPrice">{{smallPortionTotal}}</div>
+        <div class="history-item-total" id="quartPrice">{{largePortionTotal}}</div>
+    </div>
+</article>
+<hr>

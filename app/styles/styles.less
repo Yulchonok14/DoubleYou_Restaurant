@@ -291,7 +291,6 @@ h3.menu-item-title {
 }
 .basket-item-price{
   font-size: 1.1em;
-  margin-top: 10px;
 }
 .basket-item-title{
   margin: 0 0 10px;
@@ -371,6 +370,9 @@ hr{
     outline: none;
     margin-top: 15px;
   }
+  label {
+    margin-top: 15px;
+  }
   #timeDelivery {
     color: transparent;
     text-shadow : 0 0 0 @blackColor;
@@ -411,6 +413,7 @@ ul.ui-timepicker-list{
   cursor: pointer;
   overflow: auto;
   min-height: 40px;
+  max-height: 300px;
 }
 #sendButton {
   display: block;
@@ -496,6 +499,29 @@ ul.ui-timepicker-list{
 #historyButton:active {
   background-color: @blueColor;
 }
+.quantityHist {
+  width: 15px;
+  display: inline-block;
+}
+#dateHist {
+  padding-bottom: 20px;
+}
+#historyHeader {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+#tableHistory th, #tableHistory td {
+  position: relative;
+  border: 1px solid @whiteColor;
+  padding: 10px;
+  text-align: center;
+  vertical-align: top;
+}
+#divWrapper {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+}
 /* END HISTORY PAGE */
 
 /********** Large devices only **********/
@@ -519,6 +545,18 @@ ul.ui-timepicker-list{
     margin-left: -20%;
   }
   /* END BUSKET PAGE */
+
+  /* HISTORY PAGE */
+  #dateHist {
+    margin-left: 10%;
+  }
+  #discountHist, #totalPriceHist {
+    margin-right: 10%;
+  }
+  #status {
+    margin-left: 65%;
+  }
+  /* END HISTORY PAGE */
 }
 
 /********** Medium devices only **********/
@@ -559,10 +597,23 @@ ul.ui-timepicker-list{
     width: 50%;
     margin-left: -25%;
   }
+  #modalForm.appear {
+    top: 37%;
+  }
   /* END BUSKET PAGE */
+
   /* HISTORY PAGE */
   #history {
     height: 508px;
+  }
+  #dateHist {
+    margin-left: 5%;
+  }
+  #status {
+    margin-left: 70%;
+  }
+  #discountHist, #totalPriceHist {
+    margin-right: 6%;
   }
   /* END HISTORY PAGE */
 }
@@ -594,10 +645,18 @@ ul.ui-timepicker-list{
     width: 50%;
     margin-left: -25%;
   }
+  .basket-item-price {
+    padding-right: 0;
+    padding-left: 0;
+  }
   /* END BUSKET PAGE */
+
   /* HISTORY PAGE */
   #history {
     height: 508px;
+  }
+  #status {
+    margin-left: 72%;
   }
   /* END HISTORY PAGE */
 }
@@ -671,7 +730,7 @@ ul.ui-timepicker-list{
   }
   #quantPicker{
     margin-top: 15px;
-    padding-right: 0px;
+    padding-right: 0;
   }
   #totals{
     margin-top: 15px;
@@ -695,6 +754,18 @@ ul.ui-timepicker-list{
     font-size: 14px;
   }
   /* END BUSKET PAGE */
+
+  /* HISTORY PAGE */
+  #status {
+    margin-left: 50%;
+  }
+  #dateHist {
+    margin-left: 5%;
+  }
+  #discountHist, #totalPriceHist {
+    margin-right: 5%;
+  }
+  /* END HISTORY PAGE */
 }
 
 
@@ -765,6 +836,10 @@ ul.ui-timepicker-list{
     padding-right:0;
     padding-left: 0;
   }
+  .basket-item-price {
+    padding-right: 0;
+    padding-left: 0;
+  }
   /* END BUSKET PAGE */
 
   /* HISTORY PAGE */
@@ -773,6 +848,9 @@ ul.ui-timepicker-list{
   }
   #labelEmail {
     margin-bottom: 15px;
+  }
+  #status {
+    margin-left: 25%;
   }
   /* END HISTORY PAGE */
 }
