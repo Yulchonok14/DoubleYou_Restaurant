@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DoubleYou Restaurant</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <!-- build:css styles/styles.css -->
+    <link rel="stylesheet/less" type="text/css" href="styles/styles.less">
+    <!-- endbuild -->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<header>
+    <nav id="header-nav" class="navbar navbar-default">
+        <div class="container" id="container">
+            <div id="navbar" class="navbar-header">
+                <a href="#" class="pull-left visible-md visible-lg">
+                    <div id="logo-img" alt="Logo image"></div>
+                </a>
+
+                <div class="navbar-brand">
+                    <a href="#"><h1 id="brand-name">DoubleYou Restaurant</h1></a>
+                    <p>
+                        <span class="glyphicon glyphicon-certificate" alt="excellence certification"></span>
+                        <span>Certificate of Excellence</span>
+                    </p>
+                </div>
+
+                <button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div id="collapsable-nav" class="collapse navbar-collapse">
+                <ul id="nav-list" class="nav navbar-nav navbar-right">
+                    <li id="navOrderButton" class="active">
+                        <a id="orderRef" href="#orders">
+                            <span class="glyphicon glyphicon-euro"></span><br class="hidden-xs"> Orders</a>
+                    </li>
+                    <li id="navCategoryButton">
+                        <a id="categoryRef" href="#category">
+                            <span class="glyphicon glyphicon-folder-open"></span><br class="hidden-xs"> Category</a>
+                    </li>
+                    <li id="navMenuButton">
+                        <a id="menuRef" href="#menu">
+                            <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
+                    </li>
+                    <li id="navHistoryButton">
+                        <a id="historyRef" href="#history">
+                            <span class="glyphicon glyphicon-list-alt"></span><br class="hidden-xs"> History</a>
+                    </li>
+                </ul><!-- #nav-list -->
+            </div><!-- .collapse .navbar-collapse -->
+        </div><!-- .container -->
+    </nav><!-- #header-nav -->
+</header>
+
+<div id="main-content" class="container">
+</div>
+
+<footer class="panel-footer">
+    <div class="container">
+        <div class="row">
+            <section id="hours" class="col-sm-6">
+                <span>Hours:</span><br>
+                Sun-Fri: 12:00am - 2:00am<br>
+                Saturday Closed
+                <hr class="visible-xs">
+            </section>
+            <section id="address" class="col-sm-6">
+                <span>Address:</span><br>
+                5955 Melrose Ave<br>
+                Los Angeles, CA 90038-3623
+                <p>* Delivery area within 3-4 miles, with minimum order of $20 plus $3 charge for all deliveries.</p>
+                <hr class="visible-xs">
+            </section>
+        </div>
+        <div class="text-center">&copy; Copyright DoubleYou Restaurant 2016</div>
+    </div>
+</footer>
+
+<script src="libs/less.min.js" type="text/javascript"></script>
+<script src="libs/jquery-2.1.4.min.js"></script>
+<script src="libs/jquery.timepicker.min.js"></script>
+<script src="libs/bootstrap.min.js"></script>
+<script src="libs/socket.io.js"></script>
+<!-- build:js scripts/main.js -->
+<script src="js/restaurantAPI.js"></script>
+<script src="js/course.js"></script>
+<script src="js/courseHtml.js"></script>
+<script src="js/dish.js"></script>
+<script src="js/dishHtml.js"></script>
+<script src="js/basketHtml.js"></script>
+<script src="js/historyHtml.js"></script>
+<script src="js/scriptAdmin.js"></script>
+<!-- endbuild -->
+</body>
+</html>
